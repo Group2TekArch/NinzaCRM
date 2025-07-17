@@ -1,0 +1,19 @@
+{
+  "name": "ninzacrm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "smoke": "npx playwright test tests/login.spec.js && npx playwright test tests/createuser.spec.js",
+    "regression": "npx playwright test tests/**/*.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.14",
+    "playwright": "^1.54.1"
+  }
+}
