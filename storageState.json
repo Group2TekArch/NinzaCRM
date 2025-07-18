@@ -10,19 +10,15 @@
         },
         {
           "name": "jwt",
-          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJybWd5YW50cmEiLCJleHAiOjE3NTI4MTUyOTMsImlhdCI6MTc1Mjc3OTI5M30.hRIpwJC3BQR2Tm6rBMXzjRtKi5yNRG7bJ03gDMiBLKs"
-        },
-        {
-          "name": "page",
-          "value": "/create-user"
+          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJybWd5YW50cmEiLCJleHAiOjE3NTI4MzI2MTAsImlhdCI6MTc1Mjc5NjYxMH0._ZovHJFavMfeDapaKS3gKJ5LApIDXoxPn2ZXa1zj4E8"
         },
         {
           "name": "role",
-          "value": "U2FsdGVkX1+e3gTzG6fs8IdV2Sxat8UI+O1/KvBpuBk="
+          "value": "U2FsdGVkX1+FScucNNzbZrQA5t2TZgG5AYmltNMVqIk="
         },
         {
           "name": "username",
-          "value": "U2FsdGVkX1/QRRD/D9V2aUlW5Y7QXbWTiKfbx/QoN4A="
+          "value": "U2FsdGVkX19eof6ZeHK8XhWv9fEy8pENqKLpbjavS7g="
         },
         {
           "name": "username_decrypt",

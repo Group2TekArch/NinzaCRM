@@ -16,7 +16,7 @@ test('valid login test', async ({ page }) => {
    expect(isAdminConsoleVisible).toBe(true);
 
 
-   userLandingPage.clickCreateUserLink();
+   await userLandingPage.clickCreateUserLink();
    await expect(page).toHaveURL(/create-user/); 
    const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
    expect(isCreateUserPageVisible).toBe(true);
