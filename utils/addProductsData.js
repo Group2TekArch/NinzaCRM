@@ -87,9 +87,20 @@
         }
     ];
 
+    const duplicateProductData = [
+        {
+            "productName":"NinzaProdQA-22",
+            "quantity":"50",
+            "price":"300",
+            "category":"Electronics",
+            "vendor":"Vendor_68300 - (Electronics)",
+        }
+    ];
+
     module.exports = {
         validData,
         invalidData,
         invalidCategoryData,
-        invalidVendorData
+        invalidVendorData,
+        duplicateProductData
       };

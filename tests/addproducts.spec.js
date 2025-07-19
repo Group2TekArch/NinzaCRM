@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { validData, invalidData, invalidCategoryData, invalidVendorData } = require('../utils/addProductsData');
+const { validData, invalidData, invalidCategoryData, invalidVendorData, duplicateProductData } = require('../utils/addProductsData');
 const { credentials } = require('../utils/loginData');
 const { POManager } = require('../pages/POManager');
 let page,poManager,userLandingPage,addProdPage;
@@ -93,3 +93,62 @@ for (const product of invalidVendorData) {
         await addProdPage.verifyFailureMessage(product.snapshot);
       });
     }
+
+    test('Verify category dropdown values', async () => {
+        await userLandingPage.clickAddProductsButton();
+        await expect(page).toHaveURL(/create-product/);
+        const actualValues = await addProdPage.getCategoryDropdownValues();
+        const expectedValues = ['Electronics', 'Furniture', 'Electricals', 'Apparels','Others'];
+        for (const value of expectedValues) {
+          expect(actualValues).toContain(value);
+        }
+        await addProdPage.verifySelectedCategoryDropdownValue('Furniture');
+    });
+
+    test('Verify vendor dropdown values', async () => {
+        await userLandingPage.clickAddProductsButton();
+        await expect(page).toHaveURL(/create-product/);
+        const actualValues = await addProdPage.getVendorDropdownValues();
+        expect(actualValues.length).toBeGreaterThan(0);
+        await addProdPage.verifySelectedVendorDropdownValue('VendorSmartFan - (Furnitures)');
+    });
+
+    test('Verify default Quantity value',async() =>{
+        await userLandingPage.clickAddProductsButton();
+        await expect(page).toHaveURL(/create-product/);
+        await addProdPage.verifyDefaultQuantity();
+    });
+
+for (const product of duplicateProductData) {
+    test('Failed to add product - duplicate product',async() =>{
+    await userLandingPage.clickAddProductsButton();
+    await expect(page).toHaveURL(/create-product/);
+
+    await addProdPage.fillAllFields(
+        product.productName,
+        product.quantity,
+        product.price,
+        product.category,
+        product.vendor
+    );
+
+    await addProdPage.clickAddButton();
+    await addProdPage.verifyMessage(product.productName);
+
+    await userLandingPage.clickAddProductsButton();
+    await expect(page).toHaveURL(/create-product/);
+
+    await addProdPage.fillAllFields(
+        product.productName,
+        product.quantity,
+        product.price,
+        product.category,
+        product.vendor
+    );
+
+    await addProdPage.clickAddButton();
+    await addProdPage.verifyFailMessage();
+
+
+    });
+}
