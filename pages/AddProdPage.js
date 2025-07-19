@@ -45,13 +45,16 @@ class AddProdPage{
 
     async verifyMessage(prodname){
         const messageText = await this.tooltipMessage.textContent();
-        console.log(prodname);
         console.log(messageText);
-        if (messageText.includes('Successfully Added')) {
-            console.log('product is added successfully');
-        } else {
-            console.log('product is not added successfully');
-        }
+        // Use expect to assert the success message is present
+        expect(messageText).toContain('Successfully Added');
+      }
+
+      async verifyFailMessage(){
+        const messageText = await this.tooltipMessage.textContent();
+        console.log(messageText);
+        // Use expect to assert the success message is present
+        expect(messageText).toContain('Product is Not Added');
       }
 
       async verifyFailureMessage(snapshot){
@@ -62,6 +65,39 @@ class AddProdPage{
         expect(await this.page.screenshot()).toMatchSnapshot(snapshot);
       }
 
+      async getCategoryDropdownValues() {
+        const options = this.categoryDropdown.locator('option');
+        const values = await options.allTextContents();
+        return values;
+      }
+
+      async verifySelectedCategoryDropdownValue(value){
+        await this.categoryDropdown.selectOption({ label: value });
+
+        const selectedValue = await this.categoryDropdown.inputValue();
+        const selectedOptionText = await this.categoryDropdown.locator(`option[value="${selectedValue}"]`).textContent();
+        expect(selectedOptionText.trim()).toBe(value);
+      }
+
+      async getVendorDropdownValues(value){
+        const options = this.vendorDropdown.locator('option');
+        const values = await options.allTextContents();
+        return values;
+      }
+
+      
+      async verifySelectedVendorDropdownValue(value){
+        await this.vendorDropdown.selectOption({ label: value });
+
+        const selectedValue = await this.vendorDropdown.inputValue();
+        const selectedOptionText = await this.vendorDropdown.locator(`option[value="${selectedValue}"]`).textContent();
+        expect(selectedOptionText.trim()).toBe(value);
+      }
+
+      async verifyDefaultQuantity(){
+        const defaultqty = await this.quantity.inputValue();
+        expect(defaultqty.trim()).toBe('0');
+      }
     }
 
     module.exports = { AddProdPage };
