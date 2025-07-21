@@ -32,14 +32,14 @@ class CreateUserPage{
         await this.email.fill(emailID);
       }
 
+
       async fillNonMandatoryFields(date){
         await this.dob.fill(date);
       }
 
       async verifyMessage(username){
         const messageText = await this.tooltipMessage.textContent();
-
-        // Use backticks for string interpolation and .includes()
+        console.log(messageText);
         if (messageText.includes('Username ${username} Successfully Added')) {
             console.log('User is created successfully');
         } else {

@@ -5,20 +5,20 @@
       "origin": "http://49.249.28.218:8098",
       "localStorage": [
         {
-          "name": "jwt",
-          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJybWd5YW50cmEiLCJleHAiOjE3NTMxNDU0NzAsImlhdCI6MTc1MzEwOTQ3MH0.vgS_SlS1jsF7mrUaw-LXAjTJbK60etDFk6Lixs1_Mqw"
-        },
-        {
           "name": "role_decrypt",
           "value": "ROLE_ADMIN"
         },
         {
+          "name": "jwt",
+          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJybWd5YW50cmEiLCJleHAiOjE3NTI4MzI2MTAsImlhdCI6MTc1Mjc5NjYxMH0._ZovHJFavMfeDapaKS3gKJ5LApIDXoxPn2ZXa1zj4E8"
+        },
+        {
           "name": "role",
-          "value": "U2FsdGVkX1+OHCkiHOmlB3pbYC0Eh2GFyUreiXLfLTE="
+          "value": "U2FsdGVkX1+FScucNNzbZrQA5t2TZgG5AYmltNMVqIk="
         },
         {
           "name": "username",
-          "value": "U2FsdGVkX1/qBCZZxSY+JmbJ1mI95vMuxXSkRFCWGMI="
+          "value": "U2FsdGVkX19eof6ZeHK8XhWv9fEy8pENqKLpbjavS7g="
         },
         {
           "name": "username_decrypt",
