@@ -37,8 +37,10 @@ class CreateUserPage{
       }
 
       async verifyMessage(username){
-        const messageText = await tooltipMessage.textContent();
-        if (messageText.toContain('Username ${username} Successfully Added')) {
+        const messageText = await this.tooltipMessage.textContent();
+
+        // Use backticks for string interpolation and .includes()
+        if (messageText.includes('Username ${username} Successfully Added')) {
             console.log('User is created successfully');
         } else {
             console.log('User is not created successfully');

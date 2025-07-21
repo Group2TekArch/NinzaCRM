@@ -1,9 +1,9 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
+
+ //@see https://playwright.dev/docs/test-configuration
+ 
 module.exports = defineConfig({
   testDir: './tests',                     // Test files location
   fullyParallel: false,                    // Run tests in parallel
@@ -22,10 +22,10 @@ module.exports = defineConfig({
 
   projects: [
     {
-      name: 'chrome',
+      name: 'msedge',
     use: {
-      ...devices['Desktop Chrome'],
-      channel: 'chrome', // 👉 ensures real Chrome (not just Chromium)
+      ...devices['Desktop Edge'],
+      channel: 'msedge', // 👉 ensures real Edge (not just Chromium)
     },
     },
   ]

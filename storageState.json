@@ -1,0 +1,30 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://49.249.28.218:8098",
+      "localStorage": [
+        {
+          "name": "jwt",
+          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJybWd5YW50cmEiLCJleHAiOjE3NTMxNDU0NzAsImlhdCI6MTc1MzEwOTQ3MH0.vgS_SlS1jsF7mrUaw-LXAjTJbK60etDFk6Lixs1_Mqw"
+        },
+        {
+          "name": "role_decrypt",
+          "value": "ROLE_ADMIN"
+        },
+        {
+          "name": "role",
+          "value": "U2FsdGVkX1+OHCkiHOmlB3pbYC0Eh2GFyUreiXLfLTE="
+        },
+        {
+          "name": "username",
+          "value": "U2FsdGVkX1/qBCZZxSY+JmbJ1mI95vMuxXSkRFCWGMI="
+        },
+        {
+          "name": "username_decrypt",
+          "value": "rmgyantra"
+        }
+      ]
+    }
+  ]
+}
