@@ -25,7 +25,7 @@ module.exports = defineConfig({
       name: 'msedge',
     use: {
       ...devices['Desktop Edge'],
-      channel: 'msedge', // 👉 ensures real Edge (not just Chromium)
+      channel: 'msedge', 
     },
     },
   ]

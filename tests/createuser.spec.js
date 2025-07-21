@@ -5,22 +5,18 @@ const { usercredentials } = require('../utils/createUserData');
 const { credentials } = require('../utils/loginData');
 
 let page,poManager,userLandingPage,createUserPage;
-
   test.beforeAll(async ({ browser }) => {
   const storageStatePath = path.resolve(__dirname, '../storageState.json'); // adjust path if needed
   const context = await browser.newContext({ storageState: storageStatePath });
   page = await context.newPage();
-
   poManager = new POManager(page);
   const loginPage = poManager.getLoginPage();
   await loginPage.goto();
   await loginPage.login(credentials.username, credentials.password);
   await expect(page).toHaveURL(/dashboard/);
-
   userLandingPage = poManager.getLandingPage();
   const isAdminConsoleVisible = await userLandingPage.isAdminConsoleVisible();
   expect(isAdminConsoleVisible).toBe(true);
-
   createUserPage = poManager.getCreateUserPage();
 });
 
