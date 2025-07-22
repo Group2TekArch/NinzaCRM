@@ -6,6 +6,7 @@
   "scripts": {
     "smoke": "npx playwright test tests/login.spec.js && npx playwright test tests/createuser.spec.js",
     "regression": "npx playwright test tests/**/*.spec.js"
+    
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,12 @@
   "devDependencies": {
     "@playwright/test": "^1.54.1",
     "@types/node": "^24.0.14",
+    "allure-playwright": "^3.3.2",
     "playwright": "^1.54.1"
+  },
+  "dependencies": {
+    "allure": "^3.0.0-beta.16"
   }
+
+  
 }
