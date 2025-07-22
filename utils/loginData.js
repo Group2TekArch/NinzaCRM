@@ -1,4 +1,4 @@
 exports.credentials = {
     username: 'rmgyantra',
-    password: ''
+    password: 'rmgy@9999'
   };
