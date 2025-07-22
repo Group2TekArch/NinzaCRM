@@ -1,11 +1,24 @@
 const { test, expect } = require('@playwright/test');
+
+const path = require('path');
 const { POManager } = require('../pages/POManager');
 const { usercredentials, passwordandmobilewithspecialcharacters} = require('../utils/createUserData');
 const { credentials } = require('../utils/loginData');
-let page,poManager,userLandingPage,createUserPage;
 
-test.beforeAll(async ({ browser }) => {
-  const context = await browser.newContext({ storageState: 'storageState.json' });
+let page,poManager,userLandingPage,createUserPage;
+  test.beforeAll(async ({ browser }) => {
+  const storageStatePath = path.resolve(__dirname, '../storageState.json'); // adjust path if needed
+  const context = await browser.newContext({ storageState: storageStatePath });
+
+//const { POManager } = require('../pages/POManager');
+//const { usercredentials } = require('../utils/createUserData');
+//const { credentials } = require('../utils/loginData');
+//let page,poManager,userLandingPage,createUserPage;
+
+//test.beforeAll(async ({ browser }) => {
+ // const storageStatePath = path.resolve(__dirname, '../storageState.json');
+  //const context = await browser.newContext({ storageState: 'storageState.json' });
+
   page = await context.newPage();
   poManager = new POManager(page);
   const loginPage = poManager.getLoginPage();
@@ -127,7 +140,7 @@ test("Verify user creation with subdomain email", async () => {
     const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
     expect(isCreateUserPageVisible).toBe(true);
     await createUserPage.fillMandatoryFields(
-      usercredentials.fullname,
+    usercredentials.fullname,
     usercredentials.username,
     usercredentials.password,
     usercredentials.mobile,
@@ -153,9 +166,11 @@ test("Verify user creation with max-length (50 char) username", async () => {
       usercredentials.email,
       //  "Long User", longUsername, "Password123", "9998887776", "longuser@example.com"
     );
+  
     await createUserPage.clickCreateUserButton();
     await createUserPage.verifyMessage(username);
 });
+
 
 test("Verify user creation with exactly 6 characters in password", async () => {
   await userLandingPage.clickCreateUserLink();
@@ -269,3 +284,4 @@ test("Verify user creation with special characters in mobile", async () => {
     
 //   });
 // }
+

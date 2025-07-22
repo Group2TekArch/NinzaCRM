@@ -1,4 +1,3 @@
-
 const { expect } = require('@playwright/test');
 let screenshotCounter = 1;
 
