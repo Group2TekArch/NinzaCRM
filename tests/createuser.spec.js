@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pages/POManager');
-const { usercredentials } = require('../utils/createUserData');
+const { usercredentials, passwordandmobilewithspecialcharacters} = require('../utils/createUserData');
 const { credentials } = require('../utils/loginData');
 let page,poManager,userLandingPage,createUserPage;
 
@@ -156,3 +156,116 @@ test("Verify user creation with max-length (50 char) username", async () => {
     await createUserPage.clickCreateUserButton();
     await createUserPage.verifyMessage(username);
 });
+
+test("Verify user creation with exactly 6 characters in password", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+
+  const randomNumber = Math.floor(Math.random() * 500) + 1;
+  const randomUserName = `group2ninza${randomNumber}`;
+
+  const randomEmail = `group2ninza${randomNumber}@tekarch.com`
+
+  const randomMobileNumber = Math.floor(Math.random() * 9000) + 1000;
+  const randomMobile = `980234${randomMobileNumber}`;
+
+  const passwordwithsixchar = '123456';
+
+  await  createUserPage.fillMandatoryFields(
+    passwordandmobilewithspecialcharacters.fullname,
+    randomUserName,
+    passwordwithsixchar,
+    randomMobile,
+    randomEmail,
+  );
+  await createUserPage.clickCreateUserButton();
+  await createUserPage.verifyMessage(passwordandmobilewithspecialcharacters.username);
+
+});
+
+test("Verify user creation with special characters in password", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+
+  const randomNumber = Math.floor(Math.random() * 500) + 1;
+  const randomUserName = `group2ninza${randomNumber}`;
+
+  const randomEmail = `group2ninza${randomNumber}@tekarch.com`
+
+  const randomMobileNumber = Math.floor(Math.random() * 9000) + 1000;
+  const randomMobile = `980234${randomMobileNumber}`;
+
+  const passwordwithspecialchar = '@Secure#123!';
+
+  await  createUserPage.fillMandatoryFields(
+    passwordandmobilewithspecialcharacters.fullname,
+    randomUserName,
+    passwordwithspecialchar,
+    randomMobile,
+    randomEmail,
+  );
+  await createUserPage.clickCreateUserButton();
+  await createUserPage.verifyMessage(passwordandmobilewithspecialcharacters.username);
+
+});
+
+test("Verify user creation with special characters in mobile", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+
+  const randomNumber = Math.floor(Math.random() * 500) + 1;
+  const randomUserName = `group2ninza${randomNumber}`;
+
+  const randomEmail = `group2ninza${randomNumber}@tekarch.com`
+
+  const randomMobileNumber = Math.floor(Math.random() * 9000) + 1000;
+  const randomMobile = `980-234-${randomMobileNumber}`;
+
+  await  createUserPage.fillMandatoryFields(
+    passwordandmobilewithspecialcharacters.fullname,
+    randomUserName,
+    passwordandmobilewithspecialcharacters.password,
+    randomMobile,
+    randomEmail,
+  );
+  await createUserPage.clickCreateUserButton();
+  await createUserPage.verifyMessage(passwordandmobilewithspecialcharacters.username);
+
+});
+
+// for (const password of passwordField) {
+//   test(`Create user successfully with password having only 6 characters and special characters: ${JSON.stringify(password)}`, async () => {
+//     await userLandingPage.clickCreateUserLink();
+//     await expect(page).toHaveURL(/create-user/);
+//     const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+//     expect(isCreateUserPageVisible).toBe(true);
+
+//     const randomNumber = Math.floor(Math.random() * 500) + 1;
+//     const randomUserName = `ninza${randomNumber}`;
+   
+//     const randomMobileNumber = Math.floor(Math.random() * 9000) + 1000;
+//     const randomMobile = `980234${randomMobileNumber}`;
+
+//     const randomEmail = `ninzauser${randomNumber}@tekarch.com`;
+
+//     await  createUserPage.fillMandatoryFields(
+//         passwordField.fullname,
+//           passwordField.randomUserName,
+//           passwordField.password,
+//           passwordField.randomMobile,
+//           passwordField.randomEmail,
+      
+//         );
+
+//     await createUserPage.clickCreateUserButton();
+//     await createUserPage.verifySuccessMessage(passwordField.username);
+
+    
+//   });
+// }
