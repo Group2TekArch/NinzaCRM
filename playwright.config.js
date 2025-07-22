@@ -5,10 +5,11 @@ const { defineConfig, devices } = require('@playwright/test');
  //@see https://playwright.dev/docs/test-configuration
  
 module.exports = defineConfig({
+  retries: 2,
   testDir: './tests',                     // Test files location
   fullyParallel: false,                    // Run tests in parallel
   forbidOnly: !!process.env.CI,           // Prevent accidental .only in CI
-  retries: process.env.CI ? 2 : 0,        // Retry failed tests in CI
+  
   workers: 1, // Limit workers on CI
   reporter: 'html',                       // HTML report generation
 

@@ -12,6 +12,9 @@ class AddProdPage{
         this.vendorDropdown=page.locator("//select[@name='vendorId']");
         this.addButton=page.locator("//button[@type='submit']");
         this.tooltipMessage=page.locator("//div[@role='alert']");
+        this.searchOptionSelect=page.locator("//select[@class='form-control']");
+        this.searchInput = page.getByPlaceholder("Search by product Name");
+        this.searchTable = page.locator("//table[@class='table table-striped table-hover']/tbody/tr");
     }
 
     async fillAllFields(prodName,qty,prc,category,vendor){
@@ -97,6 +100,15 @@ class AddProdPage{
         const defaultqty = await this.quantity.inputValue();
         expect(defaultqty.trim()).toBe('0');
       }
+
+      async searchProduct(prodname){
+        await this.searchOptionSelect.selectOption("productName");
+        await this.searchInput.fill(prodname);
+        const rcount = await this.searchTable.count();
+        expect(rcount).toBe(1);
+        const pname = await this.searchTable.locator('td:nth-child(2)').textContent();
+        expect(pname.trim()).toEqual(prodname);
+     }
     }
 
     module.exports = { AddProdPage };

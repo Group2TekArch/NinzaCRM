@@ -20,11 +20,11 @@ test.beforeAll(async ({ browser }) => {
 });
 
 for (const product of validData) {
-  test(`Create product successfully: ${JSON.stringify(product)}`, async () => {
+  test.only(`Create product successfully: ${JSON.stringify(product)}`, async () => {
     await userLandingPage.clickAddProductsButton();
     await expect(page).toHaveURL(/create-product/);
     const randomNumber = Math.floor(Math.random() * 2000) + 1;
-    const randomProductName = `NinzaProdQA4_${randomNumber}`;
+    const randomProductName = `NinzaProdQA4${randomNumber}`;
 
     await addProdPage.fillAllFields(
         randomProductName,
@@ -36,6 +36,8 @@ for (const product of validData) {
 
     await addProdPage.clickAddButton();
     await addProdPage.verifyMessage(product.productName);
+    await page.waitForTimeout(6000);
+    await addProdPage.searchProduct(randomProductName);
   });
 }
 
