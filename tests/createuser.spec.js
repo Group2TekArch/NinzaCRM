@@ -117,8 +117,8 @@ test("Verify user creation with mobile number starting with 0", async () => {
         //"Test User", "testuser01", "Password123", "0123456789", "testuser01@example.com"
     );
     await createUserPage.clickCreateUserButton();
-    await createUserPage.verifyMessage("madhuriD2025");
-});
+    await createUserPage.verifyMessage(username);
+})
 
 test("Verify user creation with subdomain email", async () => {
     //const createUserPage = new CreateUserPage(page);
@@ -135,7 +135,7 @@ test("Verify user creation with subdomain email", async () => {
        // "Subdomain User", "subdomainuser01", "Password123", "9876543210", "user@mail.example.com"
     );
     await createUserPage.clickCreateUserButton();
-    await createUserPage.verifyMessage("subdomainuser01");
+    await createUserPage.verifyMessage(username);
 });
 
 test("Verify user creation with max-length (50 char) username", async () => {

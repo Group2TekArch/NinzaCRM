@@ -5,6 +5,7 @@ class UserLandingPage{
         this.createUserLink=page.locator("//div[text()='Create User']");
         this.Products=page.locator("//a[text()='Products']");
         this.addProductsButton=page.locator("//span[text()='Add Product']");
+        this.createContactLink = page.locator("//span[text()='Create Contact']");   
     }
     
     async isAdminConsoleVisible() {
@@ -23,6 +24,13 @@ class UserLandingPage{
         await this.addProductsButton.click();
         await this.page.waitForLoadState('networkidle');
     }
+    async clickCreateContactLink() {
+        await this.createContactLink.click();
+        await this.page.waitForLoadState('networkidle');
+    }
+   /* async isContactsVisible() {
+        return await this.createContactLink.isVisible();
+    }  */ 
 }
 
 module.exports = {UserLandingPage};
