@@ -5,6 +5,7 @@ class UserLandingPage{
         this.createUserLink=page.locator("//div[text()='Create User']");
         this.Products=page.locator("//a[text()='Products']");
         this.addProductsButton=page.locator("//span[text()='Add Product']");
+        this.contacts=page.locator("//a[text()='Contacts']");
         this.createContactLink = page.locator("//span[text()='Create Contact']");   
     }
     
@@ -25,6 +26,7 @@ class UserLandingPage{
         await this.page.waitForLoadState('networkidle');
     }
     async clickCreateContactLink() {
+        await this.contacts.click();
         await this.createContactLink.click();
         await this.page.waitForLoadState('networkidle');
     }
