@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pages/POManager');
 const { usercredentials } = require('../utils/createContactData');
 const { credentials } = require('../utils/loginData');
-let page,poManager,userLandingPage,ContactPage;
+let page,poManager,userLandingPage,contactPage;
 
 test.beforeAll(async ({ browser }) => {
   const context = await browser.newContext({ storageState: 'storageState.json' });
@@ -13,28 +13,27 @@ test.beforeAll(async ({ browser }) => {
   await loginPage.goto();
   await loginPage.login(credentials.username, credentials.password);
   await expect(page).toHaveURL(/dashboard/);
-  
   userLandingPage = poManager.getLandingPage();
- /* const iscontactslink = await userLandingPage.isContactsVisible();
-  expect(iscontactslink).toBe(true);*/
-  await userLandingPage.clickCreateContactLink();
-  await expect(page).toHaveURL(/contacts/);
-  ContactPage = poManager.getContactPage();
+  contactPage = poManager.getContactPage();
 });
 
 test("Verify successful contact creation by providing mandatory values", async () => {
-  const isContactPageVisible = await ContactPage.isContactPageVisible();
-  expect(isContactPageVisible).toBe(true);
+  await userLandingPage.clickCreateContactLink();
+  await expect(page).toHaveURL(/create-contact/);
+  const randomMobile10Digit = Math.floor(1000000000 + Math.random() * 9000000000);
 
-  await ContactPage.fillmandatoryFields(
+  //not allowing to create product with duplicate phone number
+  // Contact maxlength is 20 but accepting max 21 chars, and only accepts characters n space
+  await contactPage.fillmandatoryFields(
     usercredentials.Organization,
     usercredentials.title,
     usercredentials.department,
     usercredentials.officePhone,
     usercredentials.contactName,
-    usercredentials.mobile,
-    usercredentials.email
+    randomMobile10Digit.toString(),
+    usercredentials.email,
+    usercredentials.campaign
   );
-  await ContactPage.clickAddButton();
-  await ContactPage.verifyMessage(usercredentials.contactName);
+  await contactPage.clickAddButton();
+  await contactPage.verifyMessage(usercredentials.contactName, randomMobile10Digit.toString());
 });
