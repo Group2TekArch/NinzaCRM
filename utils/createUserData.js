@@ -15,6 +15,8 @@ exports.usercredentials = {
     dob:'05/06/2014'
   };
 
+  
+
 exports.passwordandmobilewithspecialcharacters = {
   fullname: 'ninzagrouptwo',
   username: 'group2ninza',

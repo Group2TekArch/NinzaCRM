@@ -9,16 +9,18 @@ test('valid login test', async ({ page }) => {
   const userLandingPage = new UserLandingPage(page);
   const createUserPage = new CreateUserPage(page);
   await loginPage.goto();
-  await loginPage.login(credentials.username, credentials.password);
-   
-    await expect(page).toHaveURL(/dashboard/); 
-   const isAdminConsoleVisible = await userLandingPage.isAdminConsoleVisible();
-   expect(isAdminConsoleVisible).toBe(true);
+ await loginPage.login(credentials.username, credentials.password);
+  await expect(page).toHaveURL('http://49.249.28.218:8098/dashboard');
+  const isAdminConsoleVisible = await userLandingPage.isAdminConsoleVisible();
+  expect(isAdminConsoleVisible).toBe(true);
 
 
-   await userLandingPage.clickCreateUserLink();
-   await expect(page).toHaveURL(/create-user/); 
+
+   userLandingPage.clickCreateUserLink();
+   await expect(page).toHaveURL('http://49.249.28.218:8098/create-user');
    const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
    expect(isCreateUserPageVisible).toBe(true);
    await page.context().storageState({ path: 'auth.json' });
 });
+
+
