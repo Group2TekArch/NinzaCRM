@@ -22,6 +22,8 @@
             "category":"Electronics",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-1.png",
+            "errorField": "productName",
+            "errormsg":"Please fill out this field."
         },
         {
             "productName":"NinzaProdQA3",
@@ -30,6 +32,8 @@
             "category":"Electronics",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-2.png",
+            "errorField": "quantity",
+            "errormsg":"Please enter a valid value. The two nearest valid values are 60 and 61."
         },
         {
             "productName":"NinzaProdQA6",
@@ -38,6 +42,8 @@
             "category":"Electronics",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-3.png",
+            "errorField": "quantity",
+            "errormsg":"Please fill out this field."
         },
         {
             "productName":"NinzaProdQA7",
@@ -46,6 +52,8 @@
             "category":"Electronics",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-4.png",
+            "errorField": "quantity",
+            "errormsg":"Value must be greater than or equal to 1."
         },
         {
             "productName":"NinzaProdQA8",
@@ -54,6 +62,8 @@
             "category":"Electronics",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-5.png",
+            "errorField": "price",
+            "errormsg":"Please fill out this field."
         },
         {
             "productName":"NinzaProdQA9",
@@ -62,6 +72,8 @@
             "category":"Electronics",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-6.png",
+            "errorField": "price",
+            "errormsg":"Value must be greater than or equal to 0.01."
         }
        
        
@@ -75,6 +87,8 @@
             "price":"300",
             "vendor":"Vendor_68300 - (Electronics)",
             "snapshot":"landing-7.png",
+            "errorField": "categoryDropdown",
+            "errormsg":"Please select an item in the list."
         }
     ];
     const invalidVendorData = [
@@ -84,6 +98,8 @@
             "price":"300",
             "category":"Electronics",
             "snapshot":"landing-8.png",
+            "errorField": "vendorDropdown",
+            "errormsg":"Please select an item in the list."
         }
     ];
 

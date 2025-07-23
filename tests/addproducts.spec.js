@@ -20,7 +20,7 @@ test.beforeAll(async ({ browser }) => {
 });
 
 for (const product of validData) {
-  test.only(`Create product successfully: ${JSON.stringify(product)}`, async () => {
+  test(`Create product successfully: ${JSON.stringify(product)}`, async () => {
     await userLandingPage.clickAddProductsButton();
     await expect(page).toHaveURL(/create-product/);
     const randomNumber = Math.floor(Math.random() * 2000) + 1;
@@ -56,6 +56,8 @@ for (const product of invalidData) {
 
     await addProdPage.clickAddButton();
     await page.waitForTimeout(2500);
+    const locator = addProdPage[product.errorField];
+    await addProdPage.verifyInvalidDataTooltipMessage(locator,product.errormsg);
     await addProdPage.verifyFailureMessage(product.snapshot);
   });
 }
@@ -74,6 +76,8 @@ for(const product of invalidCategoryData) {
 
     await addProdPage.clickAddButton();
     await page.waitForTimeout(2500);
+    const locator = addProdPage[product.errorField];
+    await addProdPage.verifyInvalidDataTooltipMessage(locator,product.errormsg);
     await addProdPage.verifyFailureMessage(product.snapshot);
   });
 }
@@ -92,6 +96,8 @@ for (const product of invalidVendorData) {
     
         await addProdPage.clickAddButton();
         await page.waitForTimeout(2500);
+        const locator = addProdPage[product.errorField];
+        await addProdPage.verifyInvalidDataTooltipMessage(locator,product.errormsg);
         await addProdPage.verifyFailureMessage(product.snapshot);
       });
     }
@@ -125,9 +131,11 @@ for (const product of duplicateProductData) {
     test('Failed to add product - duplicate product',async() =>{
     await userLandingPage.clickAddProductsButton();
     await expect(page).toHaveURL(/create-product/);
+    const randomNumber = Math.floor(Math.random() * 2000) + 1;
+    const randomProductName = `NinzaProdQA22${randomNumber}`;
 
     await addProdPage.fillAllFields(
-        product.productName,
+        randomProductName,
         product.quantity,
         product.price,
         product.category,
@@ -135,13 +143,13 @@ for (const product of duplicateProductData) {
     );
 
     await addProdPage.clickAddButton();
-    await addProdPage.verifyMessage(product.productName);
+    await addProdPage.verifyMessage(randomProductName);
 
     await userLandingPage.clickAddProductsButton();
     await expect(page).toHaveURL(/create-product/);
 
     await addProdPage.fillAllFields(
-        product.productName,
+        randomProductName,
         product.quantity,
         product.price,
         product.category,
@@ -149,7 +157,7 @@ for (const product of duplicateProductData) {
     );
 
     await addProdPage.clickAddButton();
-    await addProdPage.verifyFailMessage();
+    await addProdPage.verifyFailMessage(randomProductName);
 
 
     });

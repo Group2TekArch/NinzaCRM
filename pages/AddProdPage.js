@@ -52,11 +52,12 @@ class AddProdPage{
         expect(messageText).toContain('Successfully Added');
       }
 
-      async verifyFailMessage(){
+      async verifyFailMessage(productname){
         const messageText = await this.tooltipMessage.textContent();
         console.log(messageText);
+        const expmessage = `The Project Name :${productname} Already Exists`;
         // Use expect to assert the success message is present
-        expect(messageText).toContain('Product is Not Added');
+        expect(messageText).toContain(expmessage);
       }
 
       async verifyFailureMessage(snapshot){
@@ -65,6 +66,12 @@ class AddProdPage{
         //const screenshotPath = `landing_${timestamp}.png`;
         //const snapshotPath = `../tests/addproducts.spec.js-snapshots/${snapshot}`;
         expect(await this.page.screenshot()).toMatchSnapshot(snapshot);
+      }
+
+      async verifyInvalidDataTooltipMessage(locator,expMsg){
+        const actualMsg = await locator.evaluate(el => el.validationMessage);
+        console.log('Validation Message:', actualMsg);
+        expect(actualMsg.trim()).toEqual(expMsg);
       }
 
       async getCategoryDropdownValues() {
