@@ -3,6 +3,7 @@ const { LoginPage } = require('../pages/LoginPage');
 const { UserLandingPage } = require('../pages/UserLandingPage'); 
 const { AddProdPage } = require('../pages/AddProdPage');
 const { ContactPage } = require('../pages/ContactPage');
+const { LeadPage } = require('../pages/LeadPage');
 
 class POManager{
     constructor(page){
@@ -12,6 +13,7 @@ class POManager{
         this.createUserPage = new CreateUserPage(page);
         this.addProdPage = new AddProdPage(page);
         this.contactPage = new ContactPage(page);
+        this.leadPage = new LeadPage(page);
     }
 
     getLoginPage(){
@@ -31,6 +33,10 @@ class POManager{
     }
     getContactPage(){
         return this.contactPage;
+    }
+
+    getLeadPage(){
+        return this.leadPage;
     }
 }
 
