@@ -148,13 +148,18 @@ class CampaignPage {
 
     async getTargetSizeValidationMessage() {
 
-        //await this.tooltipMgs.waitFor({ state: 'visible' });
-        const messageText = "Value must be greater than or equal to 1"
-        //const messageText = this.tooltipTargetSzMgs.textContent();
-        //await this.page.waitForTimeout(2500);
-        console.log("Error Message: "+ messageText);
-        // Use expect to assert the success message is present
-        expect(messageText).toContain('Value must be greater than or equal to 1');
+        const actualMsg = await locator.evaluate(el => el.validationMessage);
+        console.log('Validation Message:', actualMsg);
+        expect(actualMsg.trim()).toEqual(expMsg);
+
+
+        // //await this.tooltipMgs.waitFor({ state: 'visible' });
+        // const messageText = "Value must be greater than or equal to 1"
+        // //const messageText = this.tooltipTargetSzMgs.textContent();
+        // //await this.page.waitForTimeout(2500);
+        // console.log("Error Message: " + messageText);
+        // // Use expect to assert the success message is present
+        // expect(messageText).toContain('Value must be greater than or equal to 1');
     }
 
 
