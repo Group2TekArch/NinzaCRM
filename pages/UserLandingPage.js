@@ -5,16 +5,11 @@ class UserLandingPage{
         this.createUserLink=page.locator("//div[text()='Create User']");
         this.Products=page.locator("//a[text()='Products']");
         this.addProductsButton=page.locator("//span[text()='Add Product']");
+        this.campaignsModule = page.locator("//a[text()='Campaigns']");
         this.contacts=page.locator("//a[text()='Contacts']");
         this.createContactLink = page.locator("//span[text()='Create Contact']");   
         this.LeadsTab= page.locator("//a[text()='Leads']");
         this.createLeadButton = page.locator("//span[text()='Create Lead']");
-    }
-
-    async clickCreateLeadLink(){
-        await this.LeadsTab.click();
-        await this.createLeadButton.click();
-        await this.page.waitForLoadState('networkidle');
     }
     
     async isAdminConsoleVisible() {
@@ -33,14 +28,26 @@ class UserLandingPage{
         await this.addProductsButton.click();
         await this.page.waitForLoadState('networkidle');
     }
+
+    async clickCampaignsModule(){
+
+        await this.campaignsModule.click();
+        await this.page.waitForLoadState('networkidle');
+
+
+    }
+
+      async clickCreateLeadLink(){
+        await this.LeadsTab.click();
+        await this.createLeadButton.click();
+        await this.page.waitForLoadState('networkidle');
+    }
+
     async clickCreateContactLink() {
         await this.contacts.click();
         await this.createContactLink.click();
         await this.page.waitForLoadState('networkidle');
     }
-   /* async isContactsVisible() {
-        return await this.createContactLink.isVisible();
-    }  */ 
 }
 
 module.exports = {UserLandingPage};
