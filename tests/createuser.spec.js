@@ -335,6 +335,7 @@ test('Date of Birth field click shows date picker', async ({ page }) => {
   // Update this selector to match your actual date picker element
   const datePicker = page.locator(' //*[@id="content"]/div[2]/form[1]/div[1]/div[1]/div[2]/div[1]/input[1]');
   await expect(datePicker).toBeVisible();
+  //await expect(datePicker).toBeVisible();
 });
 
 
