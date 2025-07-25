@@ -254,34 +254,90 @@ test("Verify user creation with special characters in mobile", async () => {
 
 });
 
-// for (const password of passwordField) {
-//   test(`Create user successfully with password having only 6 characters and special characters: ${JSON.stringify(password)}`, async () => {
-//     await userLandingPage.clickCreateUserLink();
-//     await expect(page).toHaveURL(/create-user/);
-//     const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
-//     expect(isCreateUserPageVisible).toBe(true);
+test("Verify user creation with  correct data in all mandatory fields", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
 
-//     const randomNumber = Math.floor(Math.random() * 500) + 1;
-//     const randomUserName = `ninza${randomNumber}`;
-   
-//     const randomMobileNumber = Math.floor(Math.random() * 9000) + 1000;
-//     const randomMobile = `980234${randomMobileNumber}`;
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
 
-//     const randomEmail = `ninzauser${randomNumber}@tekarch.com`;
+  await createUserPage.fillMandatoryFields(
+    usercredentials.fullname,
+    usercredentials.username,
+    usercredentials.password,
+    usercredentials.mobile,
+    usercredentials.email
+  );
 
-//     await  createUserPage.fillMandatoryFields(
-//         passwordField.fullname,
-//           passwordField.randomUserName,
-//           passwordField.password,
-//           passwordField.randomMobile,
-//           passwordField.randomEmail,
-      
-//         );
+  await createUserPage.clickCreateUserButton();
+  await createUserPage.verifyMessage(usercredentials.username);
+});
 
-//     await createUserPage.clickCreateUserButton();
-//     await createUserPage.verifySuccessMessage(passwordField.username);
+test('Date of Birth field click shows date picker', async ({ page }) => {
+  const poManager = new POManager(page);
+  const loginPage = poManager.getLoginPage();
+  const userLandingPage = poManager.getLandingPage();
+  const createUserPage = poManager.getCreateUserPage();
 
-    
-//   });
-// }
+  await loginPage.goto();
+  await loginPage.login(credentials.username, credentials.password);
+  await expect(page).toHaveURL(/dashboard/);
 
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+
+  //await createUserPage.dob.waitFor({ state: 'visible' });
+  await createUserPage.dob.click();
+
+  // Update this selector to match your actual date picker element
+  const datePicker = page.locator(' //*[@id="content"]/div[2]/form[1]/div[1]/div[1]/div[2]/div[1]/input[1]');
+  await expect(datePicker).toBeVisible();
+});
+
+
+// test("Verify user creation with  correct data in all mandatory fields", async () => {
+//   await userLandingPage.clickCreateUserLink();
+//   await expect(page).toHaveURL(/create-user/);
+
+//   const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+//   expect(isCreateUserPageVisible).toBe(true);
+
+//   await createUserPage.fillMandatoryFields(
+//     usercredentials.fullname,
+//     usercredentials.username,
+//     usercredentials.password,
+//     usercredentials.mobile,
+//     usercredentials.email
+//   );
+
+//   await createUserPage.clickCreateUserButton();
+//   await createUserPage.verifyMessage(usercredentials.username);
+// });
+
+// test('Date of Birth field click shows date picker', async ({ page }) => {
+//   const poManager = new POManager(page);
+//   const loginPage = poManager.getLoginPage();
+//   const userLandingPage = poManager.getLandingPage();
+//   const createUserPage = poManager.getCreateUserPage();
+
+//   await loginPage.goto();
+//   await loginPage.login(credentials.username, credentials.password);
+//   await expect(page).toHaveURL(/dashboard/);
+
+//   await userLandingPage.clickCreateUserLink();
+//   await expect(page).toHaveURL(/create-user/);
+
+//   const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+//   expect(isCreateUserPageVisible).toBe(true);
+
+//   //await createUserPage.dob.waitFor({ state: 'visible' });
+//   await createUserPage.dob.click();
+
+//   // Update this selector to match your actual date picker element
+//   const datePicker = page.locator(' //*[@id="content"]/div[2]/form[1]/div[1]/div[1]/div[2]/div[1]/input[1]');
+//   await expect(datePicker).toBeVisible();
+//   //await expect(datePicker).toBeVisible();
+// });
