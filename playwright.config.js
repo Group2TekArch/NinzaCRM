@@ -29,7 +29,7 @@ module.exports = defineConfig({
 
   projects: [
     {
-      name: 'msedge',
+      name: 'chrome',
     use: {
       ...devices['Desktop Chrome'],
       channel: 'chrome', 
