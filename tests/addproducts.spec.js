@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { validData, invalidData, invalidCategoryData, invalidVendorData, duplicateProductData } = require('../utils/addProductsData');
-const { credentials } = require('../utils/loginData');
+const { validData, invalidData, invalidCategoryData, invalidVendorData, duplicateProductData } = require('../test-data/addProductsData');
+const { credentials } = require('../test-data/loginData');
 const { POManager } = require('../pages/POManager');
 let page,poManager,userLandingPage,addProdPage;
 

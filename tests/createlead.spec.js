@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { leadDataAllFields, leadDataMandotoryFields} = require('../utils/createLeadData');
-const { credentials } = require('../utils/loginData');
+const { leadDataAllFields, leadDataMandotoryFields} = require('../test-data/createLeadData');
+const { credentials } = require('../test-data/loginData');
 const { POManager } = require('../pages/POManager');
 let page,poManager,userLandingPage,leadPage;
 
