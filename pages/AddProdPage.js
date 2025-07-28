@@ -46,6 +46,8 @@ class AddProdPage{
     }
 
     async verifyMessage(prodname){
+        this.tooltipMessage.waitFor({ state: 'visible' });
+        //const messageText = await this.tooltipMessage.textContent();
         const messageText = await this.tooltipMessage.textContent();
         console.log(messageText);
         // Use expect to assert the success message is present

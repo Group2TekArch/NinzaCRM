@@ -1,10 +1,8 @@
-  const { test, expect } = require('@playwright/test');
-  const { leadDataAllFields, leadDataMandotoryFields} = require('../utils/createLeadData');
-  const { credentials } = require('../utils/loginData');
-  const { POManager } = require('../pages/POManager');
-  const { LeadPage } = require('../pages/LeadPage');
-
-  let page,poManager,userLandingPage,leadPage;
+const { test, expect } = require('@playwright/test');
+const { leadDataAllFields, leadDataMandotoryFields} = require('../test-data/createLeadData');
+const { credentials } = require('../test-data/loginData');
+const { POManager } = require('../pages/POManager');
+let page,poManager,userLandingPage,leadPage;
 
   test.beforeAll(async ({ browser }) => {
       const context = await browser.newContext({ storageState: 'storageState.json' });
