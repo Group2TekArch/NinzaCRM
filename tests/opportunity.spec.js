@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pages/POManager');
-const { usercredentials } = require('../utils/opportunityData');
-const { credentials } = require('../utils/loginData');
+const { usercredentials } = require('../test-data/opportunityData');
+const { credentials } = require('../test-data/loginData');
 let page,poManager,userLandingPage,OpportunityPage;
 
 
