@@ -119,7 +119,7 @@ test("Date Picker Functionality", async (page) => {
 
 
 
-test.only("Validate Target Size with Negative Number", async (page) => {
+test("Validate Target Size with Negative Number", async (page) => {
 
   campaignPage.openCreateCampaignForm();
   //await expect(page).toHaveURL("/create-campaign");

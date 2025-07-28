@@ -24,13 +24,18 @@ exports.leadDataAllFields = {
   };
 
   exports.leadDataMandotoryFields = {
-    leadName: 'grouptwo',
+    leadName: '',
     company: 'tekarch',
     leadSource: 'web',
     industry:'IT',
     phone: '1234567890',
     leadStatus:'new',
-    campaign:'KK'
+    campaign:'KK',
+
+    errorField: 'leadName',
+    errormsg:'Please fill out this field.'
+
+
    
   };
 

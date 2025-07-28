@@ -42,7 +42,7 @@ class ContactPage{
         await campaignSearchPage.locator("#search-input").fill(campaignName)
         const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
         expect(actCampaingName).toEqual(campaignName);
-        await campaignSearchPage.locator("//button[text()='Select']").first().click();;
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
         // await campaignSearchPage.pause();
     }
     

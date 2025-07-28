@@ -127,12 +127,12 @@ for (const product of invalidVendorData) {
         await addProdPage.verifyDefaultQuantity();
     });
 
-for (const product of duplicateProductData) {
-    test('Failed to add product - duplicate product',async() =>{
-    await userLandingPage.clickAddProductsButton();
-    await expect(page).toHaveURL(/create-product/);
-    const randomNumber = Math.floor(Math.random() * 2000) + 1;
-    const randomProductName = `NinzaProdQA22${randomNumber}`;
+    for (const product of duplicateProductData) {
+      test('Failed to add product - duplicate product',async() =>{
+      await userLandingPage.clickAddProductsButton();
+      await expect(page).toHaveURL(/create-product/);
+      const randomNumber = Math.floor(Math.random() * 2000) + 1;
+      const randomProductName = `NinzaProdQA22${randomNumber}`;
 
     await addProdPage.fillAllFields(
         randomProductName,
