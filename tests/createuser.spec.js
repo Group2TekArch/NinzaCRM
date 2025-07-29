@@ -21,7 +21,7 @@ test.beforeAll(async ({ browser }) => {
   createUserPage = poManager.getCreateUserPage();
 });
 
-test.only("Verify successful user creation by providing mandatory values", async () => {
+test("Verify successful user creation by providing mandatory values", async () => {
   await userLandingPage.clickCreateUserLink();
   await expect(page).toHaveURL(/create-user/);
   const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
