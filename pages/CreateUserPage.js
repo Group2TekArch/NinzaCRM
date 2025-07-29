@@ -36,9 +36,13 @@ class CreateUserPage{
       }
 
 
-      async fillNonMandatoryFields(){
+      async fillNonMandatoryFields(date=''){
         //await this.dob.fill(date);
+        if(date === 'today'){
+          await this.useTodayDate();
+        }else{
         await this.useDatePicker();
+      }
       }
 
        async verifyMessage(fullname){
@@ -49,10 +53,27 @@ class CreateUserPage{
               // Use expect to assert the success message is present
               expect(messageText).toEqual(`User ${fullname.trim()} Successfully Added`);
             }
+
+            async verifyUserAlreadyExists(username){
+              this.tooltipMessage.waitFor({ state: 'visible' });
+              //const messageText = await this.tooltipMessage.textContent();
+              const messageText = await this.tooltipMessage.textContent();
+              console.log(messageText);
+              // Use expect to assert the success message is present
+              expect(messageText).toEqual(`username: ${username.trim()} already exists`);
+            }
+
       async verifyInvalidEmailError(errorMsg){
           const messageText = await this.errorMessage.textContent();
           console.log(messageText);
           expect(messageText).toEqual(errorMsg);
+      }
+
+      async useTodayDate(){
+        const today = new Date();
+        const dobString = today.toISOString().split('T')[0];
+        await this.dob.fill(dobString);
+        console.log("Date picker used successfully");
       }
 
       async useDatePicker() {
@@ -78,6 +99,11 @@ class CreateUserPage{
       const actualMsg = await locator.evaluate(el => el.validationMessage);
       console.log('Validation Message:', actualMsg);
       expect(actualMsg.trim()).toEqual(expMsg);
+    }
+
+    async verifyFieldValue(locator,expvalue){
+      const actvalue = await locator.evaluate(el => el.value);
+      expect(actvalue).toEqual(expvalue);
     }
 }
 
