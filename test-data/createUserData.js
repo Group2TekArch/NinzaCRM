@@ -27,6 +27,18 @@ const invalidEmailData = {
   errormsg:'Please enter a valid email address'
 };
 
+const invalidMobileData = {
+  fullname: 'groupninza@1234',
+  username: 'groupninza',
+  password: 'group123',
+  mobile:'abcd@v',
+  email:'group2ninza@tekarch.com',
+  dob:'05/06/2014',
+  moberrorField: 'mobile',
+  fullnameerrorField: 'fullName'
+  }
+
+
 const invalidData= [
   {
     "fullname": "",
@@ -98,7 +110,6 @@ const invalidData= [
     "errorField": "password",
     "errormsg":"Please lengthen this text to 6 characters or more (you are currently using 4 characters)."
   }
-
 ];
 
 
@@ -126,5 +137,6 @@ module.exports = {
   invalidData,
   usercredentials,
   passwordandmobilewithspecialcharacters,
-  invalidEmailData
+  invalidEmailData,
+  invalidMobileData
 };
