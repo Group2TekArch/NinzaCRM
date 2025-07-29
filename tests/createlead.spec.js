@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { leadDataMandatoryFields, leadEmailFieldValidation, leadInvalidEmailFieldValidation, leadPhoneValidation, leadInvalidRating, leaveAddressInfoBlank, validWebsiteField, invalidWebsiteField, defaultValuesField, blankCampaignField, blankPhoneField, blankStatusField} = require('../utils/createLeadData');
+const { leadDataMandatoryFields, leadEmailFieldValidation, leadInvalidEmailFieldValidation, leadPhoneValidation, leadInvalidRating, leaveAddressInfoBlank, validWebsiteField, invalidWebsiteField, defaultValuesField, blankCampaignField, blankPhoneField, blankStatusField} = require('../test-data/createLeadData');
 const { credentials } = require('../test-data/loginData');
 const { POManager } = require('../pages/POManager');
 let page,poManager,userLandingPage,leadPage;
@@ -102,7 +102,7 @@ test("phone number validation", async() =>{
 
 });
 
-//not working
+
 test("duplicate leads check", async() =>{
   await userLandingPage.clickCreateLeadLink();
   await expect(page).toHaveURL(/create-lead/);
