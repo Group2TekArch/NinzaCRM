@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { POManager } = require('../pages/POManager');
-const { credentials } = require('../utils/loginData');
-const { validData, negativeData, campaign, negativeTargetValue } = require('../utils/createCampaignData');
+const { credentials } = require('../test-data/loginData');
+const { validData, negativeData, campaign, negativeTargetValue } = require('../test-data/createCampaignData');
 let page, poManager, loginPage, landingPage, campaignPage;
 
 test.beforeEach(async ({ page }) => {
@@ -21,7 +21,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 
-test("TC_001_002_Create Campaign UI Elements Validation ", async ({ page }) => {
+test("TC_001_002_Create Campaign UI Elements Validation ", async () => {
 
 
   await campaignPage.openCreateCampaignForm();

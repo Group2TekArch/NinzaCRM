@@ -1,8 +1,7 @@
 const { test, expect } = require('@playwright/test');
-const { POManager } = require('../pages/POManager');
 const { leadDataMandatoryFields, leadEmailFieldValidation, leadInvalidEmailFieldValidation, leadPhoneValidation, leadInvalidRating, leaveAddressInfoBlank, validWebsiteField, invalidWebsiteField, defaultValuesField, blankCampaignField, blankPhoneField, blankStatusField} = require('../utils/createLeadData');
-const { credentials } = require('../utils/loginData');
-
+const { credentials } = require('../test-data/loginData');
+const { POManager } = require('../pages/POManager');
 let page,poManager,userLandingPage,leadPage;
 
 test.beforeAll(async ({ browser }) => {

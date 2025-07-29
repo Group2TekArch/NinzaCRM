@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/LoginPage');
 const { UserLandingPage } = require('../pages/UserLandingPage'); 
 const { CreateUserPage } = require("../pages/CreateUserPage");
-const { credentials } = require('../utils/loginData');
+const { credentials } = require('../test-data/loginData');
 
 test('valid login test', async ({ page }) => {
   const loginPage = new LoginPage(page);
