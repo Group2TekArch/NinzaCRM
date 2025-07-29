@@ -62,7 +62,7 @@ let page,poManager,userLandingPage,leadPage;
       await expect(leadPage.createLeadButton).toBeVisible();
 });
 
-  test.only('Testing-Enter Mandatory fields except Lead Name', async () => {
+  test('Testing-Enter Mandatory fields except Lead Name', async () => {
       // Navigate to the Lead form
       await userLandingPage.clickCreateLeadLink();
       await expect(page).toHaveURL(/create-lead/);
@@ -88,5 +88,29 @@ let page,poManager,userLandingPage,leadPage;
     
 });
 
+test.only('Enter Mandatory fields except industry', async () => {
+      // Navigate to the Lead form
+      await userLandingPage.clickCreateLeadLink();
+      await expect(page).toHaveURL(/create-lead/);
 
+     // Fill mandatory fields EXCEPT industry
+      await leadPage.fillMandatoyFields(
+      leadDataMandotoryFields.leadName,
+      leadDataMandotoryFields.company,
+      leadDataMandotoryFields.leadSource,
+       "",  // Blank industry
+      leadDataMandotoryFields.phone,
+      leadDataMandotoryFields.leadStatus,
+      leadDataMandotoryFields.campaign
+
+  );
+      // Click the Create button
+        await leadPage.clickCreateLeadButton();
+        console.log(await page.content());
+        await page.waitForTimeout(2000);
+
+       const locator = leadPage[leadDataMandotoryFields.errorField];
+       await leadPage.verifyInvalidDataTooltipMessage(locator,leadDataMandotoryFields.errormsg);
+
+});
    

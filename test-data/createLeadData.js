@@ -34,8 +34,41 @@ exports.leadDataAllFields = {
 
     errorField: 'leadName',
     errormsg:'Please fill out this field.'
+  };
+  exports.leadDataMandotoryFields = {
+    leadName: 'grouptwo',
+    company: '',
+    leadSource: 'web',
+    industry:'IT',
+    phone: '1234567890',
+    leadStatus:'new',
+    campaign:'KK',
 
-
-   
+    errorField: 'company',
+    errormsg:'Please fill out this field.'
   };
 
+  exports.leadDataMandotoryFields = {
+    leadName: 'grouptwo',
+    company: 'tekarch',
+    leadSource: '',
+    industry:'IT',
+    phone: '1234567890',
+    leadStatus:'new',
+    campaign:'KK',
+
+    errorField: 'leadSource',
+    errormsg:'Please fill out this field.'
+  };
+  exports.leadDataMandotoryFields = {
+    leadName: 'grouptwo',
+    company: 'tekarch',
+    leadSource: 'web',
+    industry: '',
+    phone: '1234567890',
+    leadStatus:'new',
+    campaign:'KK',
+
+    errorField: 'industry',
+    errormsg:'Please fill out this field.'
+  };
