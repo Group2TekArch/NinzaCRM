@@ -34,6 +34,7 @@ class CampaignPage {
         this.tooltipMgs = page.locator("//div[@role='alert']");
         this.tooltipTargetSzMgs = page.locator("//div[@class='Toastify__toast-container']");
         this.datePickerIcon = page.locator("//input[@type='date']");
+        this.TargetSize = page.locator('[name="targetSize"]')
 
     }
 
@@ -146,7 +147,7 @@ class CampaignPage {
     }
 
 
-    async getTargetSizeValidationMessage() {
+    async getTargetSizeValidationMessage(locator,expMsg) {
 
         const actualMsg = await locator.evaluate(el => el.validationMessage);
         console.log('Validation Message:', actualMsg);

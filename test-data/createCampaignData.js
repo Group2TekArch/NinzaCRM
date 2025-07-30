@@ -45,6 +45,7 @@ const campaign =
     CampaignAudience: "General",
     Description: "Auto-generated campaign test",
     
+    
   }
 ;
 
@@ -55,6 +56,8 @@ const negativeTargetValue =
     TargetSize: "-100" , //nagative value for testing
     CampaignAudience: "General",
     Description: "Passing Negative Target Value",
+    errorField: "TargetSize",
+    errormsg:"Value must be greater than or equal to 0."
   }
 ;
 
