@@ -288,6 +288,7 @@ class LeadPage{
 
     async emptyCampaignField(lname,lcompany,source,indus,ph,status){
         await this.leadName.fill(lname);
+        // await this.leadName.fill(lname);
         await this.company.fill(lcompany);
         await this.leadSource.fill(source);
         await this.industry.fill(indus);
@@ -400,15 +401,6 @@ class LeadPage{
         console.log(messageText);
         expect(messageText).toContain('please select a campaign before submitting');
     }
-      
-
-    
-
-
-    
-
-    
-
     
 
 }

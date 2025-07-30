@@ -1,38 +1,35 @@
 exports.leadDataAllFields = {
-    leadName: 'Regina',
-    company: 'BCBS',
+    leadName: 'grouptwo',
+    company: 'tekarch',
     leadSource: 'web',
     industry:'IT',
     annualRevenue:'2500000',
     numberOfEmployees:'1000',
+
     phone: '1234567890',
-    email: 'reginaninza@tekarch.com',
-    secondaryEmail: 'reginaninza@gmail.com',
+    email: 'group2ninza@tekarch.com',
+    secondaryEmail: 'group2ninza@gmail.com',
     leadStatus:'new',
     rating:'4',
     assignedTo:'team2',
+
     address: 'leadaddress',
     city: 'leadcity',
     country: 'usa',
     postalCode:'980234',
     website:'www.group2.com',
-    description:'lead description'
+    campaign:'KK',
+    decsription:'lead description'
+  
   };
 
-<<<<<<< HEAD
   exports.leadDataMandotoryFields = {
     leadName: '',
     company: 'tekarch',
-=======
-  exports.leadDataMandatoryFields = {
-    leadName: 'Regina',
-    company: 'BCBS',
->>>>>>> 3591c55ff0faf13451edf467cc1155ae87ec12dc
     leadSource: 'web',
     industry:'IT',
     phone: '1234567890',
     leadStatus:'new',
-<<<<<<< HEAD
     campaign:'KK',
 
     errorField: 'leadName',
@@ -63,6 +60,7 @@ exports.leadDataAllFields = {
     errorField: 'leadSource',
     errormsg:'Please fill out this field.'
   };
+
   exports.leadDataMandotoryFields = {
     leadName: 'grouptwo',
     company: 'tekarch',
@@ -74,8 +72,36 @@ exports.leadDataAllFields = {
 
     errorField: 'industry',
     errormsg:'Please fill out this field.'
+
   };
-=======
+  exports.leadDataAllFields = {
+    leadName: 'Regina',
+    company: 'BCBS',
+    leadSource: 'web',
+    industry:'IT',
+    annualRevenue:'2500000',
+    numberOfEmployees:'1000',
+    phone: '1234567890',
+    email: 'reginaninza@tekarch.com',
+    secondaryEmail: 'reginaninza@gmail.com',
+    leadStatus:'new',
+    rating:'4',
+    assignedTo:'team2',
+    address: 'leadaddress',
+    city: 'leadcity',
+    country: 'usa',
+    postalCode:'980234',
+    website:'www.group2.com',
+    description:'lead description'
+  };
+
+  exports.leadDataMandatoryFields = {
+    leadName: 'Regina',
+    company: 'BCBS',
+    leadSource: 'web',
+    industry:'IT',
+    phone: '1234567890',
+    leadStatus:'new',
     campaign: 'Campaigntest',
   };
 
@@ -202,9 +228,5 @@ exports.leadDataAllFields = {
     errormsg:"Please fill out this field.",
   };
 
+  
 
-
-
-
-
->>>>>>> 3591c55ff0faf13451edf467cc1155ae87ec12dc

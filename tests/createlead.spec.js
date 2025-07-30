@@ -286,6 +286,7 @@ test("Verify error message for empty lead status field", async () => {
 
   await leadPage.emptyLeadStatusField(
     blankStatusField.leadName,
+    //blankStatusField.leadName,
     blankStatusField.company,
     blankStatusField.leadSource,  
     blankStatusField.industry,
