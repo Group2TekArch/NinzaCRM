@@ -57,11 +57,538 @@ class LeadPage{
         await this.industry.fill(lsource);
         await this.phone.fill(ph);  
         await this.leadStatus.fill(status);
-        await this.campaign.fill(lcampaign);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async emailFieldValidation(lname,lcompany,source,indus,ph,priemail,secemail,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.email.fill(priemail);
+        await this.secondaryEmail.fill(secemail);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async invalidEmailFieldValidation(lname,lcompany,source,indus,ph,priemail,secemail,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.email.fill(priemail);
+        await this.secondaryEmail.fill(secemail);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async phoneValidation(lname,lcompany,source,indus,ph,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async ratingValidation(lname,lcompany,source,indus,ph,lrating,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.rating.fill(lrating);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+     async blankAddressField(lname,lcompany,source,indus,ph,status,add,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+       await this.address.fill(add);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async ValidWebsite(lname,lcompany,source,indus,ph,status,web,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.website.fill(web);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+     async inValidWebsite(lname,lcompany,source,indus,ph,status,web,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.website.fill(web);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async defaultValuesValidation(lname,lcompany,source,indus,ph,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.leadStatus.fill(status);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    
+
+    async emptyPhoneField(lname,lcompany,source,indus,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);  
+        await this.leadStatus.fill(status);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async emptyLeadStatusField(lname,lcompany,source,indus,ph,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);  
+        await this.phone.fill(ph);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+
+
+    async isCreateLeadPageVisible(){
+        return await this.createLeadPage.isVisible();
+    }
+
+    async emailFieldValidation(lname,lcompany,source,indus,ph,priemail,secemail,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.email.fill(priemail);
+        await this.secondaryEmail.fill(secemail);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async invalidEmailFieldValidation(lname,lcompany,source,indus,ph,priemail,secemail,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.email.fill(priemail);
+        await this.secondaryEmail.fill(secemail);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async phoneValidation(lname,lcompany,source,indus,ph,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async ratingValidation(lname,lcompany,source,indus,ph,lrating,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.rating.fill(lrating);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+     async blankAddressField(lname,lcompany,source,indus,ph,status,add,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+       await this.address.fill(add);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async ValidWebsite(lname,lcompany,source,indus,ph,status,web,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.website.fill(web);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+     async inValidWebsite(lname,lcompany,source,indus,ph,status,web,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.website.fill(web);
+        await this.leadStatus.fill(status);
+        //await this.campaignPlusSign.click(campaign);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async defaultValuesValidation(lname,lcompany,source,indus,ph,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph);  
+        await this.leadStatus.fill(status);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async emptyCampaignField(lname,lcompany,source,indus,ph,status){
+        await this.leadName.fill(lname);
+        // await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);
+        await this.phone.fill(ph); 
+        await this.leadStatus.fill(status);
+    }
+
+    async emptyPhoneField(lname,lcompany,source,indus,status,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);  
+        await this.leadStatus.fill(status);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+    async emptyLeadStatusField(lname,lcompany,source,indus,ph,campaignName){
+        await this.leadName.fill(lname);
+        await this.company.fill(lcompany);
+        await this.leadSource.fill(source);
+        await this.industry.fill(indus);  
+        await this.phone.fill(ph);
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
+    }
+
+
+
+    async isCreateLeadPageVisible(){
+        return await this.createLeadPage.isVisible();
     }
 
     async clickCreateLeadButton(){
         await this.createLeadButton.click();
     }
+
+    async verifyInvalidDataTooltipMessage(locator,expMsg){
+        const actualMsg = await locator.evaluate(el => el.validationMessage);
+        console.log('Validation Message:', actualMsg);
+        expect(actualMsg.trim()).toEqual(expMsg);
+    }
+
+
+    async verifyMessage(){
+        const messageText = await this.toolTipMessage.textContent();
+        console.log(messageText);
+        expect(messageText).toContain('Successfully Added');
+    }
+
+    async verifyEmailFormatMessage(){
+        const message = await this.emailFormatMessage.textContent();
+        console.log(message);
+        expect(message).toContain("Please enter a valid email address");
+    }
+
+    async invalidPhoneValidation(){
+        const expected = this.leadsTableFirstRowPhone;
+        const actual = this.phone;
+        expect(actual).not.toEqual(expected);
+        console.log("phone field does not accept non numeric values");
+    }
+
+    async duplicateLeadNameCheck(){
+        await this.leadsPageSearchDropDown.selectOption("Search by Lead Name");
+        await this.leadspageSearchTextBox.fill(this.leadName);
+        //td[contains(text(),'Regina')]
+        expect(this.leadsTableFirstRowPhone.locator("//td")).toContain(this.leadName);
+        console.log("Lead name exists");
+        
+    }
+
+    // async verifyInvalidRatingTooltipMessage(expMsg){
+    //     this.rating.focus();
+    //     const actualMsg = await this.rating.evaluate(el => el.validationMessage);
+    //     console.log('Validation Message:', actualMsg);
+    //     expect(actualMsg.trim()).toEqual(expMsg);
+    //   }
+
+     async verifyInvalidDataTooltipMessage(locator,expMsg){
+        const actualMsg = await locator.evaluate(el => el.validationMessage);
+        console.log('Validation Message:', actualMsg);
+        expect(actualMsg.trim()).toEqual(expMsg);
+      }
+
+      async verifyDefaultValues(){
+        expect(await this.rating.inputValue()).toEqual("0");
+        console.log("Rating is 0 by default");
+        expect(await this.numberOfEmployees.inputValue()).toEqual("1");
+        console.log("Number of Employees is 1 by default");
+        expect(await this.annualRevenue.inputValue()).toEqual("0");
+        console.log("Annual Revenue is 0 by default");
+      }
+
+       async verifyErrorMessageCampaignField(){
+        const messageText = await this.toolTipMessage.textContent();
+        console.log(messageText);
+        expect(messageText).toContain('please select a campaign before submitting');
+    }
+      
+    async verifyInvalidDataTooltipMessage(locator,expMsg){
+        const actualMsg = await locator.evaluate(el => el.validationMessage);
+        console.log('Validation Message:', actualMsg);
+        expect(actualMsg.trim()).toEqual(expMsg);
+    }
+
+
+    async verifyMessage(){
+        const messageText = await this.toolTipMessage.textContent();
+        console.log(messageText);
+        expect(messageText).toContain('Successfully Added');
+    }
+
+    async verifyEmailFormatMessage(){
+        const message = await this.emailFormatMessage.textContent();
+        console.log(message);
+        expect(message).toContain("Please enter a valid email address");
+    }
+
+    async invalidPhoneValidation(){
+        const expected = this.leadsTableFirstRowPhone;
+        const actual = this.phone;
+        expect(actual).not.toEqual(expected);
+        console.log("phone field does not accept non numeric values");
+    }
+
+    async duplicateLeadNameCheck(){
+        await this.leadsPageSearchDropDown.selectOption("Search by Lead Name");
+        await this.leadspageSearchTextBox.fill(this.leadName);
+        //td[contains(text(),'Regina')]
+        expect(this.leadsTableFirstRowPhone.locator("//td")).toContain(this.leadName);
+        console.log("Lead name exists");
+        
+    }
+
+    // async verifyInvalidRatingTooltipMessage(expMsg){
+    //     this.rating.focus();
+    //     const actualMsg = await this.rating.evaluate(el => el.validationMessage);
+    //     console.log('Validation Message:', actualMsg);
+    //     expect(actualMsg.trim()).toEqual(expMsg);
+    //   }
+
+     async verifyInvalidDataTooltipMessage(locator,expMsg){
+        const actualMsg = await locator.evaluate(el => el.validationMessage);
+        console.log('Validation Message:', actualMsg);
+        expect(actualMsg.trim()).toEqual(expMsg);
+      }
+
+      async verifyDefaultValues(){
+        expect(await this.rating.inputValue()).toEqual("0");
+        console.log("Rating is 0 by default");
+        expect(await this.numberOfEmployees.inputValue()).toEqual("1");
+        console.log("Number of Employees is 1 by default");
+        expect(await this.annualRevenue.inputValue()).toEqual("0");
+        console.log("Annual Revenue is 0 by default");
+      }
+
+       async verifyErrorMessageCampaignField(){
+        const messageText = await this.toolTipMessage.textContent();
+        console.log(messageText);
+        expect(messageText).toContain('please select a campaign before submitting');
+    }
+    
+
+>>>>>>> a8a00d4... LeadTC
 }
 module .exports = { LeadPage };
