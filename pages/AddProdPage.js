@@ -1,7 +1,7 @@
-const { expect } = require('@playwright/test');
+import  { expect } from '@playwright/test';
 let screenshotCounter = 1;
 
-class AddProdPage{
+export class AddProdPage{
     
     constructor(page){
         this.page = page;
@@ -120,4 +120,4 @@ class AddProdPage{
      }
     }
 
-    module.exports = { AddProdPage };
+    //module.exports = { AddProdPage };

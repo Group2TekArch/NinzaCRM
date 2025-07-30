@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "smoke": "npx playwright test tests/login.spec.js && npx playwright test tests/createuser.spec.js",
-    "regression": "npx playwright test tests/**/*.spec.js"
-    
+    "regression": "npx playwright test tests/**/*.spec.js",
+    "test": "npx playwright test",
+    "allure:report": "npx allure generate allure-results --clean -o allure-report && npx allure open allure-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.54.1",
     "@types/node": "^24.0.14",
@@ -19,8 +20,6 @@
     "playwright": "^1.54.1"
   },
   "dependencies": {
-    "allure": "^3.0.0-beta.16"
+    "allure": "^0.0.0"
   }
-
-  
 }

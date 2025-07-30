@@ -1,16 +1,27 @@
-const { ContactPage } = require("../pages/ContactPage");
+import { ContactPage } from "../pages/ContactPage";
+import { helpers } from "../utils/helpers";
 
-exports.usercredentials = {
+export const usercredentials = {
     Organization: 'nsts user',
     title: 'ninzauser1',
-    department:'ninzauser1109',
+    department:'ninzauserD',
     officePhone:'2222222222',
-    contactName:'ninzauser cnt',
-    mobile:'1234567890',
-    email:'ninzauser4@tekarch.com',
+    contactName: 'NinjaCRMUser',
+    mobile:'2347659012',
+    email: 'ninja@crm.com',
     campaign: 'Campaigntest',
   };
 
-  exports.updatecontactname = {
-    contactName:'ninza group'
-  }
+  export const updatecontactname = {
+    contactName: 'updated contact name',
+    mobile: '9876543210',
+    email: 'updated_email@tekarch.com',
+  };
+
+  export const noCampaignValue = {
+    Organization: 'nsts user',
+    title: 'ninzauser1',
+    contactName: 'updated contact name',
+    mobile: '9876543210',
+    campaign: '',
+  };

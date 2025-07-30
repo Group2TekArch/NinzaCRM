@@ -1,13 +1,13 @@
-const { CreateUserPage } = require("../pages/CreateUserPage");
-const { LoginPage } = require('../pages/LoginPage');
-const { UserLandingPage } = require('../pages/UserLandingPage'); 
-const { AddProdPage } = require('../pages/AddProdPage');
-const { ContactPage } = require('../pages/ContactPage');
-const { LeadPage } = require('../pages/LeadPage');
-const {CampaignPage} = require('../pages/CampaignPage');
+import { CreateUserPage } from "../pages/CreateUserPage";
+import { LoginPage } from '../pages/LoginPage';
+import { UserLandingPage } from'../pages/UserLandingPage'; 
+import { AddProdPage } from'../pages/AddProdPage';
+import { ContactPage } from'../pages/ContactPage';
+import { LeadPage } from'../pages/LeadPage';
+import {CampaignPage} from'../pages/CampaignPage';
 
 
-class POManager{
+export class POManager{
     constructor(page){
         this.page = page;
         this.loginPage = new LoginPage(page);
@@ -56,4 +56,4 @@ class POManager{
 
 
 
-module.exports={POManager};
+//module.exports={POManager};

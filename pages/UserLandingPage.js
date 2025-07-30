@@ -1,4 +1,4 @@
-class UserLandingPage{
+export class UserLandingPage{
     constructor(page){
         this.page = page;
         this.adminConsoleLink = page.locator("//li[text()='Admin Console']");
@@ -49,5 +49,4 @@ class UserLandingPage{
         await this.page.waitForLoadState('networkidle');
     }
 }
-
-module.exports = {UserLandingPage};
+//module.exports = {UserLandingPage};

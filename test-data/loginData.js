@@ -1,9 +1,9 @@
-exports.credentials = {
+export const credentials = {
     username: 'rmgyantra',
     password: 'rmgy@9999'
   };
 
-  exports.nonadmincredentials = {
+  export const nonadmincredentials = {
     username: 'saabc1',
     password: 'saabc1'
   }

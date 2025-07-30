@@ -1,4 +1,4 @@
-exports.opportunityDataMandatoryFields = {
+export const opportunityDataMandatoryFields = {
     OpportunityName: 'Opportunity one',
     amount: 10000,
     businessType: 'New Business',
@@ -6,7 +6,7 @@ exports.opportunityDataMandatoryFields = {
     salesStage: 'Qualification',
     lead: 'Lead One'
 };
-exports.opportunityDataAllFields = {
+export const opportunityDataAllFields = {
     OpportunityName: 'Opportunity two',
     amount: 20000,
     businessType: 'New Businesstwo',

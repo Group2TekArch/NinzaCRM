@@ -1,0 +1,78 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Create Lead" [level=3]
+- text: "Lead ID:"
+- textbox: Auto Generated
+- text: Lead Name*
+- textbox
+- text: Company*
+- textbox
+- text: Lead Source*
+- textbox
+- text: Industry*
+- textbox
+- text: "Annual Revenue:"
+- spinbutton: "0"
+- text: "Number of Employees:"
+- spinbutton: "1"
+- text: Phone*
+- textbox
+- text: "Email:"
+- textbox "Please enter a valid email address (e.g., user@example.com)"
+- text: "Secondary Email:"
+- textbox
+- text: Lead Status*
+- textbox
+- text: "Rating:"
+- spinbutton: "0"
+- text: "Assigned To:"
+- textbox
+- text: "Address:"
+- textbox
+- text: "City:"
+- textbox
+- text: "Country:"
+- textbox
+- text: "Postal Code:"
+- textbox
+- text: "Website:"
+- textbox
+- text: Campaign*
+- textbox
+- button
+- text: "Description:"
+- textbox
+- button "Create Lead"
+```

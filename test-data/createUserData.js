@@ -1,4 +1,4 @@
-const usercredentials = {
+export const usercredentials = {
     fullname: 'nsts user',
     username: 'ninzauser1109',
     password:'ninzauser1109',
@@ -7,7 +7,7 @@ const usercredentials = {
     dob:'05/06/2014'
   };
 
-const passwordandmobilewithspecialcharacters = {
+export const passwordandmobilewithspecialcharacters = {
   fullname: 'ninzagrouptwo',
   username: 'group2ninza',
   password: '123456',
@@ -17,7 +17,7 @@ const passwordandmobilewithspecialcharacters = {
 
 };
 
-const invalidEmailData = {
+export const invalidEmailData = {
   fullname: 'ninzagrouptwo',
   username: 'group2ninza',
   password: '123456',
@@ -27,7 +27,7 @@ const invalidEmailData = {
   errormsg:'Please enter a valid email address'
 };
 
-const invalidData= [
+export const invalidData= [
   {
     "fullname": "",
     "username": "group2ninza",
