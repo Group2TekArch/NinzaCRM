@@ -15,7 +15,10 @@ module.exports = defineConfig({
   //forbidOnly: !!process.env.CI,           // Prevent accidental .only in CI
   //retries: 2,                          // Retry failed tests in CI
   workers: 1,                        // Limit workers on CI
-  reporter: 'html',                       // HTML report generation
+  reporter: [
+    ['list'],
+    ['allure-playwright']
+  ],                       // HTML report generation
 
   use: {
     baseURL: 'http://49.249.28.218:8098',       
