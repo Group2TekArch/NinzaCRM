@@ -65,8 +65,6 @@ for (const data of validData) {
 
     await campaignPage.clickcreateCampaignButton();
     console.log("Create campaign button clicked");
-
-
   });
 }
 
@@ -132,7 +130,7 @@ test("Date Picker Functionality", async (page) => {
 
 
 
-test.only("Validate Target Size with Negative Number", async () => {
+test("Validate Target Size with Negative Number", async () => {
 
   campaignPage.openCreateCampaignForm();
   //await expect(page).toHaveURL("/create-campaign");
@@ -145,7 +143,7 @@ test.only("Validate Target Size with Negative Number", async () => {
     negativeTargetValue.Description
   );
 
-  await page.pause();
+  //await page.pause();
   await campaignPage.clickcreateCampaignButton();
   console.log("Create campaign button clicked");
   await page.waitForTimeout(2500); 

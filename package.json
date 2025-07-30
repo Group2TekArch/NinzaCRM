@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
-  "test:suite": "npx playwright test tests/createuser.spec.ts tests/addproducts.spec.ts tests/createlead.spec.ts tests/createcampaign.spec.ts tests/createcontact.spec.ts",
+  "test:suite": "npx playwright test tests/01-createuser.spec.js tests/02-addproducts.spec.js tests/03-createcampaign.spec.js tests/04-createcontact.spec.js tests/05-createlead.spec.js",
   "allure:report": "npx allure generate allure-results --clean -o allure-report"
   },
   "keywords": [],
