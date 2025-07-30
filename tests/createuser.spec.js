@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 const { POManager } = require('../pages/POManager');
-const { usercredentials, passwordandmobilewithspecialcharacters, invalidData,invalidEmailData} = require('../test-data/createUserData');
+const { usercredentials, passwordandmobilewithspecialcharacters, invalidData,invalidEmailData,invalidMobileData} = require('../test-data/createUserData');
 const { credentials, nonadmincredentials } = require('../test-data/loginData');
 const helpers = require('../utils/helpers');
 let page,poManager,userLandingPage,createUserPage;
@@ -26,6 +26,8 @@ test("Verify successful user creation by providing mandatory values", async () =
   await expect(page).toHaveURL(/create-user/);
   const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
   expect(isCreateUserPageVisible).toBe(true);
+  // await page.hover('[name="empName"]');
+  // await page.pause(); 
   const email = await helpers.generateRandomEmail();
   const mobile = await helpers.generateRandomMobileNo();
   const username = await helpers.generateRandomUserName();
@@ -271,6 +273,43 @@ test("Fail to create user with invalid email address", async () => {
   await createUserPage.verifyInvalidEmailError(invalidEmailData.errormsg)
 });
 
+test("Verify fail to create user with same/existing/duplicate username", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+  const email = await helpers.generateRandomEmail();
+  const mobile = await helpers.generateRandomMobileNo();
+  const username = await helpers.generateRandomUserName();
+  const name = await helpers.generateRandomString();
+  const fullname = usercredentials.fullname + name;
+  
+  await createUserPage.fillMandatoryFields(
+    fullname,
+    username,
+    usercredentials.password,
+    mobile,
+    email
+  );
+  await createUserPage.clickCreateUserButton();
+  await page.waitForTimeout(2500);
+  await createUserPage.verifyMessage(fullname);
+
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+  
+  await createUserPage.fillMandatoryFields(
+    fullname,
+    username,
+    usercredentials.password,
+    mobile,
+    email
+  );
+  await createUserPage.clickCreateUserButton();
+  await page.waitForTimeout(2500);
+  await createUserPage.verifyUserAlreadyExists(username);
+});
+
 for (const user of invalidData) {
   test(`Fail to create user with blank inputs(invalid): ${JSON.stringify(user)}`, async () => {
     await userLandingPage.clickCreateUserLink();
@@ -292,6 +331,38 @@ for (const user of invalidData) {
     await createUserPage.verifyInvalidDataTooltipMessage(locator,user.errormsg);
   });
 }
+
+test("Verify mobile accepts only numeric and fullname accepts only charcters", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+  
+  await createUserPage.fillMandatoryFields(
+    invalidMobileData.fullname,
+    invalidMobileData.username,
+    invalidMobileData.password,
+    invalidMobileData.mobile,
+    invalidMobileData.email
+  );
+  const locator = createUserPage[invalidMobileData.moberrorField];
+  await createUserPage.verifyFieldValue(locator,"");
+  const locator1 = createUserPage[invalidMobileData.fullnameerrorField];
+  await createUserPage.verifyFieldValue(locator1,"groupninza");
+});
+
+test("Verify age should be more than 18 to create user", async () => {
+  await userLandingPage.clickCreateUserLink();
+  await expect(page).toHaveURL(/create-user/);
+
+  const isCreateUserPageVisible = await createUserPage.isCreateUserPageVisible();
+  expect(isCreateUserPageVisible).toBe(true);
+  
+  await createUserPage.fillNonMandatoryFields('today');
+  await createUserPage.verifyInvalidEmailError("Age must be at least 18 years.");
+});
+
 
 test("Fail to create user with non admin user", async ({ browser }) => {
   const storageStatePath = path.resolve(__dirname, '../storageState.json'); 

@@ -30,18 +30,12 @@ class ContactPage{
         await this.email.fill(email);
         await this.selectCampaign(campaign);
     }
-
+    
     async fillmandatoryFields(organization, title, contactName, mobile,campaignName) {
         await this.organizaton.fill(organization);
-        const organizatonValue = await this.organizaton.inputValue();
-        expect(organizatonValue).toBe(organization);
         await this.title.fill(title);
-        const titleValue = await this.title.inputValue();
-        expect(titleValue).toBe(title);
         await this.contactname.fill(contactName);
         await this.mobile.fill(mobile);
-        const mobileValue = await this.mobile.inputValue();
-        expect(mobileValue).toBe(mobile);
         const campaignPromise = this.page.waitForEvent('popup');
         await this.campaign.click();
         const campaignSearchPage = await campaignPromise;
@@ -130,6 +124,11 @@ class ContactPage{
         if (mobile) await this.mobile.fill(mobile);
         if (email) await this.email.fill(email);
         if (campaign) await this.selectCampaign(campaign);
+      }
+
+      async verifyFieldValue(locator,expvalue){
+        const actvalue = await locator.evaluate(el => el.value);
+        expect(actvalue).toEqual(expvalue);
       }
 
 }

@@ -17,7 +17,7 @@ test.beforeAll(async ({ browser }) => {
   contactPage = poManager.getContactPage();
 });
 
-test("Verify successful contact creation by providing all field values", async () => {
+test("verify user successfully entered all field values and able to create contact by providing all field values", async () => {
   await userLandingPage.clickCreateContactLink();
   await expect(page).toHaveURL(/create-contact/);
   const email = await helpers.generateRandomEmail();
@@ -35,6 +35,16 @@ test("Verify successful contact creation by providing all field values", async (
     email,
     usercredentials.campaign
   );
+
+  await contactPage.verifyFieldValue(contactPage["organizaton"],usercredentials.Organization);
+  await contactPage.verifyFieldValue(contactPage["contactname"],usercredentials.contactName);
+  await contactPage.verifyFieldValue(contactPage["mobile"],mobile);
+  await contactPage.verifyFieldValue(contactPage["title"],usercredentials.title);
+  await contactPage.verifyFieldValue(contactPage["department"],usercredentials.department);
+  await contactPage.verifyFieldValue(contactPage["officephone"],usercredentials.officePhone);
+  await contactPage.verifyFieldValue(contactPage["email"],email);
+
+
   await contactPage.clickAddButton();
   await page.waitForTimeout(2500);
   await contactPage.verifyMessage(usercredentials.contactName, mobile);

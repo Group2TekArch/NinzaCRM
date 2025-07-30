@@ -4,7 +4,9 @@ const { credentials } = require('../test-data/loginData');
 const { validData, negativeData, campaign, negativeTargetValue } = require('../test-data/createCampaignData');
 let page, poManager, loginPage, landingPage, campaignPage;
 
-test.beforeEach(async ({ page }) => {
+test.beforeAll(async ({ browser })  => {
+  const context = await browser.newContext({ storageState: 'storageState.json' });
+  page = await context.newPage()
   poManager = new POManager(page);
   loginPage = poManager.getLoginPage();
   await loginPage.goto();
@@ -21,14 +23,25 @@ test.beforeEach(async ({ page }) => {
 });
 
 
-test("TC_001_002_Create Campaign UI Elements Validation ", async () => {
+test("Create Campaign UI Elements Validation ", async () => {
 
 
   await campaignPage.openCreateCampaignForm();
   await expect(page).toHaveURL('/create-campaign');
 
   await campaignPage.verifyUICampaignElements();
+  console.log("All UI element are verified successfully")
+
+
+});
+
+test("check * sign is present on Campaign UI page ", async () => {
+
+
+  await campaignPage.openCreateCampaignForm();
+  await expect(page).toHaveURL('/create-campaign');
   await campaignPage.verifyMandoratoryField();
+  console.log("Mandatory field are verified successfully");
 
 
 });
@@ -85,7 +98,7 @@ test.describe('Negative Campaign Creation Tests', () => {
 });
 
 
-test("Validate Auto-generate Campaign ID", async (page) => {
+test("Validate Auto-generate Campaign ID", async () => {
 
   campaignPage.openCreateCampaignForm();
   //await expect(page).toHaveURL("/create-campaign");
@@ -119,7 +132,7 @@ test("Date Picker Functionality", async (page) => {
 
 
 
-test("Validate Target Size with Negative Number", async (page) => {
+test.only("Validate Target Size with Negative Number", async () => {
 
   campaignPage.openCreateCampaignForm();
   //await expect(page).toHaveURL("/create-campaign");
@@ -131,10 +144,16 @@ test("Validate Target Size with Negative Number", async (page) => {
     negativeTargetValue.CampaignAudience,
     negativeTargetValue.Description
   );
+
+  await page.pause();
   await campaignPage.clickcreateCampaignButton();
   console.log("Create campaign button clicked");
+  await page.waitForTimeout(2500); 
+  const locator = campaignPage.TargetSize;
+  await campaignPage.getTargetSizeValidationMessage(locator, negativeTargetValue.errormsg);
 
-  campaignPage.getTargetSizeValidationMessage();
+  // const locator = campaignPage[negativeTargetValue.errorField];
+  // await campaignPage.getTargetSizeValidationMessage(locator,negativeTargetValue.errormsg);
 
 });
 
