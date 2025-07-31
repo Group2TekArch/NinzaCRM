@@ -132,6 +132,10 @@ class ContactPage{
         if (campaign) await this.selectCampaign(campaign);
       }
 
+      async verifyFieldValue(locator,expvalue){
+        const actvalue = await locator.evaluate(el => el.value);
+        expect(actvalue).toEqual(expvalue);
+      }
 }
 
 

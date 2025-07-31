@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "smoke": "npx playwright test tests/login.spec.js && npx playwright test tests/createuser.spec.js",
-    "regression": "npx playwright test tests/**/*.spec.js"
-    
+    "test:suite": "npx playwright test tests/01-createuser.spec.js tests/02-addproducts.spec.js tests/03-createcampaign.spec.js tests/04-createcontact.spec.js tests/05-createlead.spec.js",
+    "allure:generate": "allure generate ./allure-results --clean -o ./allure-report"
   },
   "keywords": [],
   "author": "",
@@ -15,12 +14,11 @@
   "devDependencies": {
     "@playwright/test": "^1.54.1",
     "@types/node": "^24.0.14",
+    "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.2",
     "playwright": "^1.54.1"
   },
   "dependencies": {
     "allure": "^3.0.0-beta.16"
   }
-
-  
 }
