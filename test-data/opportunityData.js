@@ -1,19 +1,33 @@
-exports.opportunityDataMandatoryFields = {
-    OpportunityName: 'Opportunity one',
-    amount: 10000,
+
+const validData = [
+
+    {
+    OpportunityName: 'Enterprise Software Deal',
+    amount: '20000',
     businessType: 'New Business',
-    nextStep: 'Follow up',
-    salesStage: 'Qualification',
-    lead: 'Lead One'
-};
-exports.opportunityDataAllFields = {
-    OpportunityName: 'Opportunity two',
-    amount: 20000,
-    businessType: 'New Businesstwo',
-    nextStep: 'Follow up two',
-    salesStage: 'Qualification two',
-    lead: 'Lead two',
-    description: 'Opportunity description',
-    closeDate: '2023-12-31',
-    probability: 75
-};
+    nextStep: 'Schedule product demo',
+    salesStage: 'Qualification', 
+    probability: '75',
+    lead: 'PushpaRaj',
+    description: 'Opportunity to sell enterprise software ',
+    
+  },
+
+  {
+    OpportunityName: 'Enterprise Opportunity',
+    amount: '10000',
+    businessType: 'Business Expansion',
+    nextStep: 'Schedule meeting with client',
+    salesStage: 'Qualification', 
+    probability: '90',
+    lead: 'PushpaRaj',
+    description: 'Opportunity to sell enterprise Opportunity ',
+    
+  }
+
+]
+
+  module.exports = {
+        validData
+        
+      };
