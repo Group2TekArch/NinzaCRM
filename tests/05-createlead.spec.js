@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { leadDataMandatoryFields, leadEmailFieldValidation, leadInvalidEmailFieldValidation, leadPhoneValidation, leadInvalidRating, leaveAddressInfoBlank, validWebsiteField, invalidWebsiteField, defaultValuesField, blankCampaignField, blankPhoneField, blankStatusField} = require('../test-data/createLeadData');
+const { leadDataMandatoryFields, leadDataMandotoryFields,leadEmailFieldValidation, leadInvalidEmailFieldValidation, leadPhoneValidation, leadInvalidRating, leaveAddressInfoBlank, validWebsiteField, invalidWebsiteField, defaultValuesField, blankCampaignField, blankPhoneField, blankStatusField} = require('../test-data/createLeadData');
 const { credentials } = require('../test-data/loginData');
 const { POManager } = require('../pages/POManager');
 let page,poManager,userLandingPage,leadPage;
@@ -332,23 +332,24 @@ test('Testing-Enter Mandatory fields except Lead Name', async () => {
   await expect(page).toHaveURL(/create-lead/);
 
  // Fill mandatory fields EXCEPT Lead Name
-  await leadPage.fillMandatoyFields(
+  await leadPage.fillMandatoryFields(
    "",  // Blank lead name
-   leadDataMandatoryFields.company,
-   leadDataMandatoryFields.leadSource,
-   leadDataMandatoryFields.industry,
-   leadDataMandatoryFields.phone,
-   leadDataMandatoryFields.leadStatus,
-   leadDataMandatoryFields.campaign
+   
+   leadDataMandotoryFields.company,
+   leadDataMandotoryFields.leadSource,
+   leadDataMandotoryFields.industry,
+   leadDataMandotoryFields.phone,
+   leadDataMandotoryFields.leadStatus,
+   leadDataMandotoryFields.campaign
 
 );
   // Click the Create button
     await leadPage.clickCreateLeadButton();
-    console.log(await page.content());
+    //console.log(await page.content());
     await page.waitForTimeout(1000);
 
-   const locator = leadPage[leadDataMandatoryFields.errorField];
-  await leadPage.verifyInvalidDataTooltipMessage(locator,leadDataMandatoryFields.errormsg);
+   const locator = leadPage[leadDataMandotoryFields.errorField];
+  await leadPage.verifyInvalidDataTooltipMessage(locator,leadDataMandotoryFields.errormsg);
 
 });
 
@@ -358,26 +359,23 @@ test('Enter Mandatory fields except industry', async () => {
   await expect(page).toHaveURL(/create-lead/);
 
  // Fill mandatory fields EXCEPT industry
-  await leadPage.fillMandatoyFields(
-    leadDataMandatoryFields.leadName,
-    leadDataMandatoryFields.company,
+  await leadPage.fillMandatoryFields(
+    leadDataMandotoryFields.leadName,
+    leadDataMandotoryFields.company,
     leadDataMandatoryFields.leadSource,
    "",  // Blank industry
-   leadDataMandatoryFields.phone,
-   leadDataMandatoryFields.leadStatus,
-   leadDataMandatoryFields.campaign
+   leadDataMandotoryFields.phone,
+   leadDataMandotoryFields.leadStatus,
+   leadDataMandotoryFields.campaign
 
 );
   // Click the Create button
     await leadPage.clickCreateLeadButton();
-    console.log(await page.content());
+    //console.log(await page.content());
     await page.waitForTimeout(2000);
 
-   const locator = leadPage[leadDataMandatoryFields.errorField];
-   await leadPage.verifyInvalidDataTooltipMessage(locator,leadDataMandatoryFields.errormsg);
+   const locator = leadPage[leadDataMandotoryFields.errorField];
+   await leadPage.verifyInvalidDataTooltipMessage(locator,leadDataMandotoryFields.errormsg);
+   //await leadPage.verifyInvalidDataTooltipMessage(locator,leadDataMandotoryFields.errormsg);
 
 });
-
-
-
-  

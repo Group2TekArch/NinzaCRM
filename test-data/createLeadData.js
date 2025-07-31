@@ -1,43 +1,37 @@
-exports.leadDataAllFields = {
+  exports.leadDataMandotoryFields = {
     leadName: 'grouptwo',
     company: 'tekarch',
     leadSource: 'web',
     industry:'IT',
-    annualRevenue:'2500000',
-    numberOfEmployees:'1000',
-
     phone: '1234567890',
-    email: 'group2ninza@tekarch.com',
-    secondaryEmail: 'group2ninza@gmail.com',
     leadStatus:'new',
-    rating:'4',
-    assignedTo:'team2',
-
-    address: 'leadaddress',
-    city: 'leadcity',
-    country: 'usa',
-    postalCode:'980234',
-    website:'www.group2.com',
-    description:'lead description'
+    campaign:'Campaigntest'
+   
   };
 
-<<<<<<< HEAD
   exports.leadDataMandotoryFields = {
     leadName: '',
     company: 'tekarch',
-=======
-  exports.leadDataMandatoryFields = {
-    leadName: 'Regina',
-    company: 'BCBS',
->>>>>>> 3591c55ff0faf13451edf467cc1155ae87ec12dc
     leadSource: 'web',
     industry:'IT',
     phone: '1234567890',
     leadStatus:'new',
-<<<<<<< HEAD
-    campaign:'KK',
-    decsription:'lead description'
-  
+    campaign:'Campaigntest',
+
+    errorField: 'leadName',
+    errormsg:'Please fill out this field.'
+  };
+  exports.leadDataMandotoryFields = {
+    leadName: 'grouptwo',
+    company: '',
+    leadSource: 'web',
+    industry:'IT',
+    phone: '1234567890',
+    leadStatus:'new',
+    campaign:'Campaigntest',
+
+    errorField: 'company',
+    errormsg:'Please fill out this field.'
   };
 
   exports.leadDataMandotoryFields = {
@@ -47,7 +41,7 @@ exports.leadDataAllFields = {
     industry:'IT',
     phone: '1234567890',
     leadStatus:'new',
-    campaign:'KK',
+    campaign:'Campaigntest',
 
     errorField: 'leadSource',
     errormsg:'Please fill out this field.'
@@ -59,12 +53,40 @@ exports.leadDataAllFields = {
     industry: '',
     phone: '1234567890',
     leadStatus:'new',
-    campaign:'KK',
+    campaign:'Campaigntest',
 
     errorField: 'industry',
     errormsg:'Please fill out this field.'
   };
-=======
+
+  exports.leadDataAllFields = {
+    leadName: 'Regina',
+    company: 'BCBS',
+    leadSource: 'web',
+    industry:'IT',
+    annualRevenue:'2500000',
+    numberOfEmployees:'1000',
+    phone: '1234567890',
+    email: 'reginaninza@tekarch.com',
+    secondaryEmail: 'reginaninza@gmail.com',
+    leadStatus:'new',
+    rating:'4',
+    assignedTo:'team2',
+    address: 'leadaddress',
+    city: 'leadcity',
+    country: 'usa',
+    postalCode:'980234',
+    website:'www.group2.com',
+    description:'lead description'
+  };
+
+  exports.leadDataMandatoryFields = {
+    leadName: 'Regina',
+    company: 'BCBS',
+    leadSource: 'web',
+    industry:'IT',
+    phone: '1234567890',
+    leadStatus:'new',
     campaign: 'Campaigntest',
   };
 
@@ -191,9 +213,3 @@ exports.leadDataAllFields = {
     errormsg:"Please fill out this field.",
   };
 
-
-
-
-
-
->>>>>>> 3591c55ff0faf13451edf467cc1155ae87ec12dc
