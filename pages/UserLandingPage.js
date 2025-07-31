@@ -10,6 +10,7 @@ class UserLandingPage{
         this.createContactLink = page.locator("//span[text()='Create Contact']");   
         this.LeadsTab= page.locator("//a[text()='Leads']");
         this.createLeadButton = page.locator("//span[text()='Create Lead']");
+        this.opportunityModule = page.locator("//a[text()='Opportunities']");
     }
     
     async isAdminConsoleVisible() {
@@ -47,6 +48,14 @@ class UserLandingPage{
         await this.contacts.click();
         await this.createContactLink.click();
         await this.page.waitForLoadState('networkidle');
+    }
+
+    async clickOpportunityModule(){
+
+        await this.opportunityModule.click();
+        await this.page.waitForLoadState('networkidle');
+
+
     }
 }
 

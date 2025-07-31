@@ -5,6 +5,7 @@ const { AddProdPage } = require('../pages/AddProdPage');
 const { ContactPage } = require('../pages/ContactPage');
 const { LeadPage } = require('../pages/LeadPage');
 const {CampaignPage} = require('../pages/CampaignPage');
+const {OpportunityPage} = require('../pages/OpportunityPage');
 
 
 class POManager{
@@ -19,6 +20,8 @@ class POManager{
         this.leadPage = new LeadPage(page);
 
         this.campaignPage =new CampaignPage(page);
+
+        this.opportunityPage = new OpportunityPage(page);
 
     }
 
@@ -50,6 +53,11 @@ class POManager{
 
     getCampaignPage(){
         return this.campaignPage;
+
+    }
+
+    getOpportunityPage(){
+        return this.opportunityPage;
 
     }
 }
