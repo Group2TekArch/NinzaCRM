@@ -1,6 +1,6 @@
-import {expect} from '@playwright/test';
+const {expect} = require('@playwright/test')
 
-export class LeadPage{
+class LeadPage{
 
     constructor(page){
         this.page = page;
@@ -64,4 +64,4 @@ export class LeadPage{
         await this.createLeadButton.click();
     }
 }
-//module .exports = { LeadPage };
+module .exports = { LeadPage };

@@ -1,6 +1,6 @@
-import  { expect } from '@playwright/test';
+const { expect } = require('@playwright/test');
 
-export class CreateUserPage{
+class CreateUserPage{
     constructor(page){
         this.page = page;
         this.createUserHeader = page.locator("//h3");
@@ -82,4 +82,4 @@ export class CreateUserPage{
 }
 
 
-//module.exports = {CreateUserPage};
+module.exports = {CreateUserPage};

@@ -22,7 +22,7 @@
         return result;
       }
 
-export const helpers = {
+module.exports = {
     generateRandomEmail,
     generateRandomMobileNo,
     generateRandomUserName,

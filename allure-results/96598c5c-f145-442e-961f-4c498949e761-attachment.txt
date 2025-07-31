@@ -1,1 +1,0 @@
-/Users/Priyanka/NinzaCRM/tests/createcontact.spec.js-snapshots/org-name-required-chrome-darwin.png does not match, writing actual.

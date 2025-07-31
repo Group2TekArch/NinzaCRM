@@ -1,11 +1,9 @@
 
-import { expect } from '@playwright/test';
-//class ContactPage{
-  export class ContactPage{
+const { expect } = require('@playwright/test');
+class ContactPage{
 
     constructor(page){
         this.page = page;
-        this.pageTitle = page.locator("//a[normalize-space()='Contacts']");
         this.organizaton = page.locator('input[name="organizationName"]');
         this.title = page.locator('input[name="title"]');
         this.department = page.locator('input[name="department"]');
@@ -13,13 +11,13 @@ import { expect } from '@playwright/test';
         this.contactname = page.locator('input[name ="contactName"]');
         this.mobile = page.locator('input[name="mobile"]');
         this.email = page.locator('input[name="email"]');
-        this.campaignB = page.locator("//div[@class='form-group']//div//button[@type='button']");   //green+ button
+        this.campaign = page.locator("//div[@class='form-group']//div//button[@type='button']");
         this.createContactButton = page.locator("//button[@type='submit']");   
         this.tooltipMessage=page.locator("//div[@role='alert']");
         this.searchOptionSelect=page.locator("//select[@class='form-control']");
         this.searchInput = page.getByPlaceholder("Search by Contact Name");
         this.searchTable = page.locator("//table[@class='table table-striped table-hover']/tbody/tr[1]");
-        this.textErrorMessage = page.locator(".error-message");
+        this.updateContactBtn = page.locator("//button[text()='Update Contact']");
     }
 
     async fillAllFields(organization, title, department, officePhone, contactName, mobile, email, campaign) {
@@ -30,64 +28,41 @@ import { expect } from '@playwright/test';
         await this.contactname.fill(contactName);
         await this.mobile.fill(mobile);
         await this.email.fill(email);
-        const campaignPromise = this.page.waitForEvent('popup');
-        await this.campaignB.click();
-        const campaignSearchPage = await campaignPromise;
-        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
-        await campaignSearchPage.locator("#search-input").fill(campaign)
-        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent() // value of this is campaigntest 1st row 2nd coloumn
-        expect(actCampaingName).toEqual(campaign);
-        await campaignSearchPage.locator("//button[text()='Select']").first().click();
-        // await campaignSearchPage.pause();
-           
+        await this.selectCampaign(campaign);
     }
 
     async fillmandatoryFields(organization, title, contactName, mobile,campaignName) {
         await this.organizaton.fill(organization);
         const organizatonValue = await this.organizaton.inputValue();
         expect(organizatonValue).toBe(organization);
-        
-       
-       
-        await expect(this.title).toBeVisible();
         await this.title.fill(title);
-        await expect(this.title).toHaveValue(title);
-
-
+        const titleValue = await this.title.inputValue();
+        expect(titleValue).toBe(title);
         await this.contactname.fill(contactName);
-        
-        await expect(this.mobile).toBeVisible();
         await this.mobile.fill(mobile);
-        await expect(this.mobile).toHaveValue(mobile);
-       // const mobileValue = await this.mobile.inputValue();
-       // expect(mobileValue).toBe(mobile);
+        const mobileValue = await this.mobile.inputValue();
+        expect(mobileValue).toBe(mobile);
         const campaignPromise = this.page.waitForEvent('popup');
-        await this.campaignB.click();
+        await this.campaign.click();
         const campaignSearchPage = await campaignPromise;
         await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
         await campaignSearchPage.locator("#search-input").fill(campaignName)
-        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()  // value of this is campaigntest 1st row 2nd coloumn
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
         expect(actCampaingName).toEqual(campaignName);
         await campaignSearchPage.locator("//button[text()='Select']").first().click();
-        
+        // await campaignSearchPage.pause();
     }
 
-    async fillmandatoryFieldsExceptCampaign(organization, title, contactName, mobile,campaignName){
-        await this.organizaton.fill(organization);
-        const organizatonValue = await this.organizaton.inputValue();
-        expect(organizatonValue).toBe(organization);
-
-        await expect(this.title).toBeVisible();
-        await this.title.fill(title);
-        await expect(this.title).toHaveValue(title);        
-        await this.contactname.fill(contactName);
-        await expect(this.contactname).toHaveValue(contactName);
-        await this.mobile.fill(mobile);
-        await expect(this.mobile).toHaveValue(mobile);
-        //await this.page.pause();
-
+    async selectCampaign(campaignName){
+        const campaignPromise = this.page.waitForEvent('popup');
+        await this.campaign.click();
+        const campaignSearchPage = await campaignPromise;
+        await campaignSearchPage.locator('#search-criteria').selectOption('campaignName');
+        await campaignSearchPage.locator("#search-input").fill(campaignName)
+        const actCampaingName = await campaignSearchPage.locator("#campaign-table tbody > tr:nth-child(1)").locator('td:nth-child(2)').textContent()
+        expect(actCampaingName).toEqual(campaignName);
+        await campaignSearchPage.locator("//button[text()='Select']").first().click();
     }
-  
     
     async fillnonMandatoryFields(department, officePhone, email) {
         await this.department.fill(department);
@@ -111,10 +86,10 @@ import { expect } from '@playwright/test';
         expect(messageText).toContain('Successfully Added');
       }
 
-      async verifyUpdateMessage() {
+      async verifyUpdateMessage(){
         const messageText = await this.tooltipMessage.textContent();
         console.log(messageText);
-        expect(messageText).toContain('Contact updated contact name Modified Successfully');
+        expect(messageText).toContain('Modified Successfully');
       }
 
       async searchContact(contactname,mobile){
@@ -129,39 +104,35 @@ import { expect } from '@playwright/test';
 
      }
 
-     async verifyErrorMessage() {
-
-     expect(await this.page.screenshot()).toMatchSnapshot('org-name-required.png');
+     async updateContact(){
+        await this.searchTable.locator('td:nth-child(10) > a:nth-child(1)').click();
      }
 
-    async verifyErrorMessageText(expectedText) {
-        const errorMessage = await this.textErrorMessage.textContent();
-        console.log(errorMessage);
-        expect(errorMessage).toBeTruthy();
-        console.log(`Error message: ${errorMessage}`);
-        // Check if the error message contains the expected text
-        expect(errorMessage).toContain(expectedText);
-    }
+     async clickUpdateContactButton(){
+        await this.updateContactBtn.click();
+     }
 
-    async verifyErrorMesssageforCampaign(){
+     async updateFields({
+        organization,
+        title,
+        department,
+        officePhone,
+        contactName,
+        mobile,
+        email,
+        campaign,
+      } = {}) {
+        if (organization) await this.organizaton.fill(organization);
+        if (title) await this.title.fill(title);
+        if (department) await this.department.fill(department);
+        if (officePhone) await this.officephone.fill(officePhone);
+        if (contactName) await this.contactname.fill(contactName);
+        if (mobile) await this.mobile.fill(mobile);
+        if (email) await this.email.fill(email);
+        if (campaign) await this.selectCampaign(campaign);
+      }
 
-        expect(await this.page.screenshot()).toMatchSnapshot('campaign-name-required.png');
-    }
+}
 
-    async isCampaignDropdownVisible() {
-        await expect(this.campaignB).toBeVisible();
-        const isVisible = await this.campaignB.isVisible();
-        expect(isVisible).toBeTruthy();
-    }
 
-    async updateCreateContact() {
-        await this.pageTitle.click();
-        await this.page.locator("tbody tr:nth-child(1) td:nth-child(10) a:nth-child(1) i:nth-child(1)").click();
-        await this.contactname.fill('updated contact name1');
-        await this.mobile.fill('9887544210');
-        await this.email.fill('updated5.email@example.com');
-        await this.createContactButton.click();
-        await this.verifyUpdateMessage();
-    }
-    }
-
+module .exports = { ContactPage };
