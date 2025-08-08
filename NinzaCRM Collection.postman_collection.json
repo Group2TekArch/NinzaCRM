@@ -1,0 +1,1656 @@
+{
+	"info": {
+		"_postman_id": "228d82b0-bf94-444f-b926-0b365f00938c",
+		"name": "NinzaCRM Collection",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7488483"
+	},
+	"item": [
+		{
+			"name": "Invalid Tests",
+			"item": [
+				{
+					"name": "Create Users Tests",
+					"item": [
+						{
+							"name": "NoMoileNumberProvided",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify Status Code\",function(){",
+											"    pm.response.to.have.status(422);",
+											"});",
+											"",
+											"pm.test(\"Verify Error mesage\", function(){",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.equals(\"Enter a valid mobile number\");   ",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"ninzauser1@telarch.com\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser1\",\n  \"password\":\"ninUser1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidMobileNumber",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify Status Code\",function(){",
+											"    pm.response.to.have.status(422);",
+											"});",
+											"",
+											"pm.test(\"Verify Error mesage\", function(){",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.equals(\"Enter a valid mobile number\");   ",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"ninzauser1@telarch.com\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"123\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser1\",\n  \"password\":\"ninUser1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ExistingMobileNumber",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify Status code\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"",
+											"pm.test(\"Verify error message\",function(){",
+											"    var requestBody = JSON.parse(pm.request.body.raw);",
+											"    var mobNo = requestBody.mobileNo;",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.equals(\"Mobile Number: \" + mobNo + \" already exists\");",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"svg@telarch.com\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"1234567890\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser1\",\n  \"password\":\"ninUser1\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DuplicateUsername",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify status code is 409\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"",
+											"pm.test(\"Verify error message\", function(){",
+											"    var resquestData = JSON.parse(pm.request.body.raw);",
+											"    var username = resquestData.username;",
+											"    var response = pm.response.json();",
+											"    pm.expect(response.message).to.equals(\"username: \"+ username +\" already exists\");",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"svg@telarch.com\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"1233567890\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser1\",\n  \"password\":\"ninUser1\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ExistingEmailID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"",
+											"pm.test(\"Verify error message\", function () {",
+											"    var requestData = JSON.parse(pm.request.body.raw);",
+											"    var emailID = requestData.email;",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.eql(\"Email: \"+emailID+ \" already exists\");",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"svg@telarch.com\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"1433567890\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser2\",\n  \"password\":\"ninUser2\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NoEmailIDProvided",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify Status Code is  422 - unprocessable entity\",function(){",
+											"    pm.response.to.have.status(422);",
+											"});",
+											"",
+											"pm.test(\"Verify Error mesage\", function(){",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.equals(\"Enter a valid email ID\");   ",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"1433567890\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser2\",\n  \"password\":\"ninUser2\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidEmailID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify Status Code is  422 - unprocessable entity\",function(){",
+											"    pm.response.to.have.status(422);",
+											"});",
+											"",
+											"pm.test(\"Verify Error mesage\", function(){",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.message).to.equals(\"Enter a valid email ID\");   ",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "rmgy@9999",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "rmgyantra",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"ss@aa\",\n  \"empName\": \"Ninza user\",\n  \"experience\": 0,\n  \"mobileNo\": \"1433567890\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"ninUser2\",\n  \"password\":\"ninUser2\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NoPermissionToDeleteNonAdminUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 403\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwtToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/user?userId=UID_01013",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "UID_01013"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NoAuthCannotDelete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/user?userId=UID_01013",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"user"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "UID_01013"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Integration Tests",
+			"item": [
+				{
+					"name": "CreateUser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"function getRandomNumber(min, max) {",
+									"    return Math.floor(Math.random() * (max - min + 1)) + min;",
+									"}",
+									"",
+									"// Generate random data",
+									"let randomNum = getRandomNumber(1000, 9999);",
+									"let username = `suser_${randomNum}`;",
+									"let email = `suser_${randomNum}@example.com`;",
+									"let mobile = `9${getRandomNumber(100000000, 999999999)}`; ",
+									"let campaignname=`Camp_${randomNum}`;",
+									"// Store in environment or global variables",
+									"pm.environment.set(\"randomUsername\", username);",
+									"pm.environment.set(\"randomEmail\", email);",
+									"pm.environment.set(\"randomMobile\", mobile);",
+									"pm.environment.set(\"randomCampaignname\", campaignname);",
+									"",
+									"// Optional: Log to console",
+									"console.log(\"Generated Username:\", username);",
+									"console.log(\"Generated Email:\", email);",
+									"console.log(\"Generated Mobile:\", mobile);",
+									"",
+									"",
+									"let password = `Test@${Math.floor(Math.random() * 10000)}`;",
+									"pm.environment.set(\"generatedPassword\", password);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let responseData = pm.response.json();",
+									"pm.environment.set(\"authUsername\", responseData.username);",
+									"pm.environment.set(\"authPassword\", responseData.password);",
+									"pm.environment.set(\"userId\",responseData.empId);",
+									"",
+									"pm.test(\"Verify status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Verify empId is set\", function () {",
+									"    pm.expect(responseData.empId).to.not.be.null;",
+									"});",
+									"",
+									"pm.test(\"Check response time\", function(){",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000); ",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "rmgy@9999",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "rmgyantra",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"department\": \"IT\",\n  \"designation\": \"IT Manager\",\n  \"dob\": \"\",\n  \"email\": \"{{randomEmail}}\",\n  \"empName\": \"aab\",\n  \"experience\": 0,\n  \"mobileNo\": \"{{randomMobile}}\",\n  \"role\": \"ROLE_EMPLOYEE\",\n  \"username\": \"{{randomUsername}}\",\n  \"password\":\"{{generatedPassword}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/admin/create-user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"let response = pm.response.json();",
+									"pm.environment.set(\"jwtToken\", response.jwtToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{generatedPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{authUsername}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCampaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Campaign Created Successfully\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    pm.expect(pm.response.json().campaignName).to.eql(pm.environment.get(\"randomCampaignname\"));",
+									"});",
+									"",
+									"let campaignName = pm.response.json().campaignName;",
+									"pm.environment.set(\"campaignname\",campaignName);",
+									"",
+									"let campaignId = pm.response.json().campaignId;",
+									"pm.environment.set(\"campaignid\",campaignId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"campaignId\": \"\",\n  \"campaignName\": \"{{randomCampaignname}}\",\n  \"campaignStatus\": \"active\",\n  \"description\": \"string\",\n  \"expectedCloseDate\": \"\",\n  \"targetAudience\": \"\",\n  \"targetSize\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/campaign",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCampaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseData = pm.response.json();",
+									"var campName = pm.environment.get(\"campaignname\");",
+									"//var campName = \"terdd\";",
+									"var campaigns = responseData.content;",
+									"let found = false;",
+									"for(var i=0;i<campaigns.length;i++){",
+									"    if(campaigns[i].campaignName === campName){",
+									"        found=true;",
+									"    }",
+									"}",
+									"pm.test(\"Verify if Campaign Name exists in list\", function(){",
+									"    pm.expect(found).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/campaign/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaign",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCampaign",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var campname = pm.environment.get(\"campaignname\");",
+									"",
+									"var newcampname = campname + \"_new\";",
+									"pm.environment.set(\"campaignname\", newcampname);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Campaign updated Successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(pm.response.json().campaignName).to.eql(pm.environment.get(\"campaignname\"));",
+									"});",
+									"",
+									"let responseBody = pm.response.json();",
+									"pm.environment.set(\"regData\", JSON.stringify(responseBody));",
+									"",
+									"// let campaignName = pm.response.json().campaignName;",
+									"// pm.environment.set(\"campaignname\",campaignName);",
+									"",
+									"// let campaignId = pm.response.json().campaignId;",
+									"// pm.environment.set(\"campaignid\",campaignId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"campaignId\": \"{{campaignid}}\",\n  \"campaignName\": \"{{campaignname}}\",\n  \"campaignStatus\": \"In Progress\",\n  \"description\": \"string\",\n  \"expectedCloseDate\": \"\",\n  \"targetAudience\": \"\",\n  \"targetSize\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/campaign?campaignId={{campaignid}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaign"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "{{campaignid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCampaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseData = pm.response.json();",
+									"var campName = pm.environment.get(\"campaignname\");",
+									"//var campName = \"terdd\";",
+									"var campaigns = responseData.content;",
+									"let found = false;",
+									"for(var i=0;i<campaigns.length;i++){",
+									"    if(campaigns[i].campaignName === campName){",
+									"        found=true;",
+									"    }",
+									"}",
+									"pm.test(\"Verify if Campaign Name exists in list\", function(){",
+									"    pm.expect(found).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/campaign/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaign",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateContact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check if contactId is present\", function () {",
+									"    pm.expect(pm.response.json().contactId).to.not.be.null;",
+									"});",
+									"",
+									"pm.test(\"Verify status code is 201\", function(){",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"var contactID = pm.response.json().contactId;",
+									"pm.environment.set(\"contactid\", contactID);",
+									"var contactName = pm.response.json().contactName;",
+									"pm.environment.set(\"contactname\", contactName);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var email = pm.environment.get(\"randomEmail\");",
+									"var newemail = email.replace(/@/, \"_test@\");",
+									"pm.variables.set(\"newemail\", newemail);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"campaign\": {{regData}},\n  \"contactId\": \"\",\n  \"contactName\": \"Contact1\",\n  \"department\": \"IT\",\n  \"email\": \"{{randomEmailID}}\",\n  \"mobile\": \"{{randomMobileNumber}}\",\n  \"officePhone\": \"strig\",\n  \"organizationName\": \"\",\n  \"title\": \"IT Manager\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/contact?campaignId={{campaignid}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "{{campaignid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllContacts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseData = pm.response.json();",
+									"var contName = pm.environment.get(\"contactname\");",
+									"//var campName = \"terdd\";",
+									"var contacts = responseData.content;",
+									"let found = false;",
+									"for(var i=0;i<contacts.length;i++){",
+									"    if(contacts[i].contactName === contName){",
+									"        found=true;",
+									"    }",
+									"}",
+									"pm.test(\"Verify if contact Name exists in list\", function(){",
+									"    pm.expect(found).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/contact/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateContact",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var contname = pm.environment.get(\"contactname\");",
+									"",
+									"var newcontname = contname + \"_new\";",
+									"pm.environment.set(\"contactname\", newcontname);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Contact updated Successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(pm.response.json().contactName).to.eql(pm.environment.get(\"contactname\"));",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"campaign\": {{regData}},\n  \"contactId\": \"{{contactid}}\",\n  \"contactName\": \"{{contactname}}\",\n  \"department\": \"IT\",\n  \"email\": \"{{randomEmailID}}\",\n  \"mobile\": \"{{randomMobileNumber}}\",\n  \"officePhone\": \"\",\n  \"organizationName\": \"\",\n  \"title\": \"QA Lead\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/contact?campaignId={{campaignid}}&contactId={{contactid}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "{{campaignid}}"
+								},
+								{
+									"key": "contactId",
+									"value": "{{contactid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllContacts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseData = pm.response.json();",
+									"var contName = pm.environment.get(\"contactname\");",
+									"//var campName = \"terdd\";",
+									"var contacts = responseData.content;",
+									"let found = false;",
+									"for(var i=0;i<contacts.length;i++){",
+									"    if(contacts[i].contactName === contName){",
+									"        found=true;",
+									"    }",
+									"}",
+									"pm.test(\"Verify if contact Name exists in list\", function(){",
+									"    pm.expect(found).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/contact/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteContact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/contact?contactId={{contactid}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact"
+							],
+							"query": [
+								{
+									"key": "contactId",
+									"value": "{{contactid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllContacts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseData = pm.response.json();",
+									"var contName = pm.environment.get(\"contactname\");",
+									"//var campName = \"terdd\";",
+									"var contacts = responseData.content;",
+									"let found = false;",
+									"for(var i=0;i<contacts.length;i++){",
+									"    if(contacts[i].contactName === contName){",
+									"        found=true;",
+									"    }",
+									"}",
+									"pm.test(\"Verify if contact Name does not exists in list\", function(){",
+									"    pm.expect(found).to.be.false;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/contact/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCampaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/campaign?campaignId={{campaignid}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaign"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "{{campaignid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCampaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var responseData = pm.response.json();",
+									"var campName = pm.environment.get(\"campaignname\");",
+									"//var campName = \"terdd\";",
+									"var campaigns = responseData.content;",
+									"let found = false;",
+									"for(var i=0;i<campaigns.length;i++){",
+									"    if(campaigns[i].campaignName === campName){",
+									"        found=true;",
+									"    }",
+									"}",
+									"pm.test(\"Verify if Campaign Name does not exists in list\", function(){",
+									"    pm.expect(found).to.be.false;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/campaign/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaign",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin/user?userId={{userId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = pm.response.json();",
+									"var uName = pm.environment.get(\"userId\");",
+									"var found = responseData.some(item => item.empId === uName);",
+									"",
+									"pm.test(`Check if user not ${uName} exists`, () => {",
+									"    pm.expect(found).to.be.false;",
+									"});",
+									" "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"function getRandomNumber(min, max) {",
+							"    return Math.floor(Math.random() * (max - min + 1)) + min;",
+							"}",
+							"",
+							"let mobile = `9${getRandomNumber(100000000, 999999999)}`; ",
+							"pm.environment.set(\"randomMobileNumber\", mobile);",
+							"let randomNum = getRandomNumber(1000, 9999);",
+							"let email = `suser_${randomNum}@example.com`;",
+							"pm.environment.set(\"randomEmailID\", email);"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://49.249.28.218:8098"
+		},
+		{
+			"key": "username",
+			"value": "rmgyantra",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "rmgy@9999",
+			"type": "string"
+		}
+	]
+}
