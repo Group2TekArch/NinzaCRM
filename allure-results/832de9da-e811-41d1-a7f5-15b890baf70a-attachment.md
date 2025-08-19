@@ -1,0 +1,53 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Create User" [level=3]
+- text: "User ID:"
+- textbox: Auto Generated
+- text: User's Full Name*
+- textbox: nsts user
+- text: Mobile*
+- textbox: "1234567890"
+- text: Email*
+- textbox "Please enter a valid email address (e.g., user@example.com)": ninzauser1@tekarch.com
+- text: "Date Of Birth:"
+- textbox
+- text: Username*
+- textbox: ninzauser1109
+- text: Password*
+- textbox: ninzauser1109
+- button "Create User"
+- text: "Email: ninzauser1@tekarch.com already exists"
+- button "close": ✖︎
+```

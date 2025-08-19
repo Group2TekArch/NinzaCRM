@@ -1,0 +1,11 @@
+Status: 201
+Body: {"campaignId":"CAM00024","campaignName":null,"campaignStatus":null,"targetSize":0,"expectedCloseDate":null,"targetAudience":null,"description":null}
+Response Body: {
+  campaignId: 'CAM00024',
+  campaignName: null,
+  campaignStatus: null,
+  targetSize: 0,
+  expectedCloseDate: null,
+  targetAudience: null,
+  description: null
+}

@@ -29,11 +29,36 @@ async function generateCampaignPayload() {
     "expectedCloseDate": "",
     "targetAudience": "",
     "targetSize": 0
-  }
+  };
+}
+
+async function UpdateCampaignPayload() {
+    return {
+       
+  "campaign": {
+    "campaignId": "CAM06729",
+    "campaignName": "Abc",
+    "campaignStatus": "pending",
+    "description": "wertyughjdisd",
+    "expectedCloseDate": "11/12/1990",
+    "targetAudience": "youth",
+    "targetSize": 0
+  },
+  "contactId": "",
+  "contactName": "pqrst",
+  "department": "Finance",
+  "email": "pqrttwt@gmail.com",
+  "mobile": "1383567890",
+  "officePhone": "765632189",
+  "organizationName": "Apple",
+  "title": "Uvwxyz"
+
+};
 }
 
 module.exports = { 
    generateCreateUserPayload,
     generateCampaignPayload
+    ,UpdateCampaignPayload
  };
 

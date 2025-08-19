@@ -1,0 +1,14 @@
+payload: {
+  department: 'IT',
+  designation: 'IT Manager',
+  dob: '',
+  email: 'user_1737@example.com',
+  empName: 'aab',
+  experience: 0,
+  mobileNo: '2382150478',
+  role: 'ROLE_EMPLOYEE',
+  username: 'user_4108',
+  password: 'playwright1234'
+}
+Status: 500
+Body: {"timestamp":"2025-08-17T22:24:39.486+0000","status":500,"error":"Internal Server Error","message":"Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/admin/create-user"}

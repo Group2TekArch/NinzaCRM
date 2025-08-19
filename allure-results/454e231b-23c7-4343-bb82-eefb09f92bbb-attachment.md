@@ -1,0 +1,58 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Update Contact" [level=3]
+- text: "Contact ID:"
+- textbox: CON00284
+- text: Contact Name*
+- textbox: updated contact name
+- text: Organization Name*
+- textbox: nsts user
+- text: Title*
+- textbox: ninzauser1
+- text: "Department:"
+- textbox
+- text: "Office Phone:"
+- textbox
+- text: Mobile*
+- textbox: "9887544210"
+- text: "Email:"
+- textbox: updated5.email@example.com
+- text: Campaign*
+- textbox: Campaigntest
+- button
+- button "Update Contact"
+- alert: Contact is Not Modified
+- button "close": ✖︎
+```

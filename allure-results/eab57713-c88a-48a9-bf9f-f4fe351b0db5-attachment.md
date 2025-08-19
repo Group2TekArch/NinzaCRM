@@ -1,0 +1,209 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Campaigns" [level=2]
+- button " Create Campaign"
+- combobox:
+  - option "Search by Campaign Id" [selected]
+  - option "Search by Campaign Name"
+- textbox "Search by Campaign Id"
+- table:
+  - rowgroup:
+    - row "Campaign_Id Campaign Name Status Target Audience Target Size Expected Close Date Actions":
+      - cell "Campaign_Id"
+      - cell "Campaign Name"
+      - cell "Status"
+      - cell "Target Audience"
+      - cell "Target Size"
+      - cell "Expected Close Date"
+      - cell "Actions"
+  - rowgroup:
+    - row "CAM03909 SaveWater Planned 100  ":
+      - cell "CAM03909"
+      - cell "SaveWater"
+      - cell "Planned"
+      - cell
+      - cell "100"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03908 SaveWater Planned 100  ":
+      - cell "CAM03908"
+      - cell "SaveWater"
+      - cell "Planned"
+      - cell
+      - cell "100"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03907 SaveWater Planned 100  ":
+      - cell "CAM03907"
+      - cell "SaveWater"
+      - cell "Planned"
+      - cell
+      - cell "100"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03906 SaveWater Planned 100  ":
+      - cell "CAM03906"
+      - cell "SaveWater"
+      - cell "Planned"
+      - cell
+      - cell "100"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03905 erty Planned 100  ":
+      - cell "CAM03905"
+      - cell "erty"
+      - cell "Planned"
+      - cell
+      - cell "100"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03904 Campaign 6  ":
+      - cell "CAM03904"
+      - cell "Campaign"
+      - cell
+      - cell
+      - cell "6"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03903 Campaign 6  ":
+      - cell "CAM03903"
+      - cell "Campaign"
+      - cell
+      - cell
+      - cell "6"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03902 Campaign 6  ":
+      - cell "CAM03902"
+      - cell "Campaign"
+      - cell
+      - cell
+      - cell "6"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03901 Campaign 6  ":
+      - cell "CAM03901"
+      - cell "Campaign"
+      - cell
+      - cell
+      - cell "6"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+    - row "CAM03900 Campaign 6  ":
+      - cell "CAM03900"
+      - cell "Campaign"
+      - cell
+      - cell
+      - cell "6"
+      - cell
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /dashboard#deleteProductModal
+- list:
+  - listitem:
+    - link "Go to first page":
+      - /url: "#"
+      - text: «
+  - listitem:
+    - link "Go to previous page":
+      - /url: "#"
+      - text: ⟨
+  - listitem:
+    - link "Go to page number 1":
+      - /url: "#"
+      - text: "1"
+  - listitem:
+    - link "Go to page number 2":
+      - /url: "#"
+      - text: "2"
+  - listitem:
+    - link "Go to page number 3":
+      - /url: "#"
+      - text: "3"
+  - listitem:
+    - link "Go to page number 4":
+      - /url: "#"
+      - text: "4"
+  - listitem:
+    - link "Go to page number 5":
+      - /url: "#"
+      - text: "5"
+  - listitem:
+    - link "Go to next page":
+      - /url: "#"
+      - text: ⟩
+  - listitem:
+    - link "Go to last page":
+      - /url: "#"
+      - text: »
+```
