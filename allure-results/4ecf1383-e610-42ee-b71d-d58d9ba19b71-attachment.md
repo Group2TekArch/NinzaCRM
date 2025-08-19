@@ -1,0 +1,249 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Add Product" [level=3]
+- text: Product ID*
+- textbox: Auto Generated
+- text: Product Name*
+- textbox: NinzaProdQA8
+- text: Select Category*
+- combobox:
+  - option "Select a Category" [disabled]
+  - option "Electronics" [selected]
+  - option "Furniture"
+  - option "Electricals"
+  - option "Apparels"
+  - option "Others"
+- text: Quantity*
+- spinbutton: "50"
+- text: Price Per Unit*
+- spinbutton
+- text: Select Vendor*
+- combobox:
+  - option "Select a Vendor" [disabled]
+  - option "Vendor_68300 - (Electronics)" [selected]
+  - option "Vendor_54881 - (Electronics)"
+  - option "Vendor_50877 - (Electronics)"
+  - option "Vendor_68320 - (Electronics)"
+  - option "Vendor_29209 - (Electronics)"
+  - option "Vendor_51029 - (Electronics)"
+  - option "Vendor_30991 - (Electronics)"
+  - option "Vendor_49047 - (Electronics)"
+  - option "Vendor_56103 - (Electronics)"
+  - option "Vendor_51892 - (Electronics)"
+  - option "Vendor_14496 - (Electronics)"
+  - option "Vendor_88310 - (Electronics)"
+  - option "Vendor_63687 - (Electronics)"
+  - option "Vendor_23560 - (Electronics)"
+  - option "Vendor_56016 - (Electronics)"
+  - option "Vendor_14451 - (Electronics)"
+  - option "Vendor_90286 - (Electronics)"
+  - option "Vendor_16014 - (Electronics)"
+  - option "Vendor_05030 - (Electronics)"
+  - option "Vendor_99707 - (Electronics)"
+  - option "Vendor_17686 - (Electronics)"
+  - option "Vendor_99319 - (Electronics)"
+  - option "Vendor_84273 - (Electronics)"
+  - option "Vendor_06837 - (Electronics)"
+  - option "Vendor_51721 - (Electronics)"
+  - option "Vendor_62611 - (Electronics)"
+  - option "Vendor_96619 - (Electronics)"
+  - option "Vendor_53126 - (Electronics)"
+  - option "Vendor_81426 - (Electronics)"
+  - option "Vendor_28482 - (Electronics)"
+  - option "Vendor_10270 - (Electronics)"
+  - option "Vendor_75918 - (Electronics)"
+  - option "Vendor_26881 - (Electronics)"
+  - option "Vendor_70549 - (Electronics)"
+  - option "Vendor_84562 - (Electronics)"
+  - option "Vendor_08733 - (Electronics)"
+  - option "Vendor_22037 - (Electronics)"
+  - option "Vendor_14418 - (Electronics)"
+  - option "Vendor_41070 - (Electronics)"
+  - option "Vendor_56988 - (Electronics)"
+  - option "Vendor_00149 - (Electronics)"
+  - option "Vendor_16149 - (Electronics)"
+  - option "Vendor_05427 - (Electronics)"
+  - option "Vendor_79888 - (Electronics)"
+  - option "Vendor_26453 - (Electronics)"
+  - option "Vendor_83379 - (Electronics)"
+  - option "Vendor_97281 - (Electronics)"
+  - option "Vendor_33344 - (Electronics)"
+  - option "Vendor_51255 - (Electronics)"
+  - option "Vendor_51915 - (Electronics)"
+  - option "Vendor_90997 - (Electronics)"
+  - option "Vendor_28212 - (Electronics)"
+  - option "Vendor_70184 - (Electronics)"
+  - option "Vendor_02138 - (Electronics)"
+  - option "Vendor_45088 - (Electronics)"
+  - option "Vendor_95362 - (Electronics)"
+  - option "Vendor_66979 - (Electronics)"
+  - option "Vendor_32054 - (Electronics)"
+  - option "Vendor_60721 - (Electronics)"
+  - option "Vendor_41837 - (Electronics)"
+  - option "Vendor_16140 - (Electronics)"
+  - option "Vendor_53422 - (Electronics)"
+  - option "Vendor_20799 - (Electronics)"
+  - option "Vendor_89854 - (Electronics)"
+  - option "Vendor_93269 - (Electronics)"
+  - option "Vendor_10993 - (Electronics)"
+  - option "Vendor_25465 - (Electronics)"
+  - option "Vendor_72089 - (Electronics)"
+  - option "Vendor_07492 - (Electronics)"
+  - option "Vendor_10169 - (Electronics)"
+  - option "Vendor_09018 - (Electronics)"
+  - option "Vendor_96522 - (Electronics)"
+  - option "Vendor_27874 - (Electronics)"
+  - option "Vendor_30948 - (Electronics)"
+  - option "Vendor_27526 - (Electronics)"
+  - option "Vendor_23242 - (Electronics)"
+  - option "Vendor_32072 - (Electronics)"
+  - option "Vendor_51039 - (Electronics)"
+  - option "Vendor_58860 - (Electronics)"
+  - option "Vendor_44316 - (Electronics)"
+  - option "Vendor_82058 - (Electronics)"
+  - option "Vendor_93818 - (Electronics)"
+  - option "Vendor_25749 - (Electronics)"
+  - option "Vendor_32835 - (Electronics)"
+  - option "Vendor_45998 - (Electronics)"
+  - option "Vendor_27315 - (Electronics)"
+  - option "Vendor_39896 - (Electronics)"
+  - option "Vendor_26891 - (Electronics)"
+  - option "Vendor_70955 - (Electronics)"
+  - option "Vendor_77289 - (Electronics)"
+  - option "Vendor_11231 - (Electronics)"
+  - option "Vendor_73377 - (Electronics)"
+  - option "Vendor_80457 - (Electronics)"
+  - option "Vendor_82113 - (Electronics)"
+  - option "Vendor_49358 - (Electronics)"
+  - option "Vendor_96013 - (Electronics)"
+  - option "Vendor_47797 - (Electronics)"
+  - option "Vendor_84226 - (Electronics)"
+  - option "Vendor_53982 - (Electronics)"
+  - option "Vendor_37358 - (Electronics)"
+  - option "Vendor_36069 - (Electronics)"
+  - option "Vendor_44163 - (Electronics)"
+  - option "Vendor_01203 - (Electronics)"
+  - option "Vendor_05199 - (Electronics)"
+  - option "Vendor_52990 - (Electronics)"
+  - option "Vendor_93812 - (Electronics)"
+  - option "Vendor_14279 - (Electronics)"
+  - option "Vendor_83509 - (Electronics)"
+  - option "Vendor_52959 - (Electronics)"
+  - option "Vendor_50192 - (Electronics)"
+  - option "Vendor_31801 - (Electronics)"
+  - option "Vendor_95491 - (Electronics)"
+  - option "Vendor_50965 - (Electronics)"
+  - option "Vendor_68394 - (Electronics)"
+  - option "Vendor_50648 - (Electronics)"
+  - option "Vendor_22500 - (Electronics)"
+  - option "Vendor_17627 - (Electronics)"
+  - option "Vendor_73061 - (Electronics)"
+  - option "Vendor_39450 - (Electronics)"
+  - option "Vendor_69464 - (Electronics)"
+  - option "Vendor_58531 - (Electronics)"
+  - option "Vendor_48518 - (Electronics)"
+  - option "Vendor_26411 - (Electronics)"
+  - option "Vendor_09988 - (Electronics)"
+  - option "Vendor_99066 - (Electronics)"
+  - option "Vendor_08915 - (Electronics)"
+  - option "Vendor_83508 - (Electronics)"
+  - option "Vendor_17126 - (Electronics)"
+  - option "Vendor_79949 - (Electronics)"
+  - option "Vendor_02070 - (Electronics)"
+  - option "Vendor_94361 - (Electronics)"
+  - option "Vendor_88670 - (Electronics)"
+  - option "Vendor_33664 - (Electronics)"
+  - option "Vendor_91655 - (Electronics)"
+  - option "Vendor_04348 - (Electronics)"
+  - option "Vendor_49166 - (Electronics)"
+  - option "Vendor_05137 - (Electronics)"
+  - option "Vendor_31099 - (Electronics)"
+  - option "Vendor_63062 - (Electronics)"
+  - option "Vendor_35271 - (Electronics)"
+  - option "Vendor_34045 - (Electronics)"
+  - option "Vendor_28041 - (Electronics)"
+  - option "VendorSmartFan - (Furnitures)"
+  - option "AMVendowSmartFans - (Apparels)"
+  - option "Vendor_61396 - (Electronics)"
+  - option "Vendor_31648 - (Electronics)"
+  - option "Vendor_5555 - (Electronics)"
+  - option "Kaushal - (Electronics)"
+  - option "HP_new001 - (Electronics)"
+  - option "Vendor_73638 - (Electronics)"
+  - option "Vendor_86003 - (Electronics)"
+  - option "Vendor_48407 - (Electronics)"
+  - option "Vendor_20428 - (Electronics)"
+  - option "Vendor_57979 - (Electronics)"
+  - option "Vendor_75928 - (Electronics)"
+  - option "Vendor_09351 - (Electronics)"
+  - option "Vendor_70467 - (Electronics)"
+  - option "Vendor_61962 - (Electronics)"
+  - option "Vendor_40440 - (Electronics)"
+  - option "Vendor_17990 - (Electronics)"
+  - option "Vendor_46936 - (Electronics)"
+  - option "Vendor_85240 - (Electronics)"
+  - option "Vendor_33270 - (Electronics)"
+  - option "Vendor_40706 - (Electronics)"
+  - option "Vendor_10685 - (Electronics)"
+  - option "Vendor_54372 - (Electronics)"
+  - option "Vendor_47504 - (Electronics)"
+  - option "Vendor_93123 - (Electronics)"
+  - option "Vendor_43043 - (Electronics)"
+  - option "Vendor_91089 - (Electronics)"
+  - option "Vendor_89832 - (Electronics)"
+  - option "Vendor_36960 - (Electronics)"
+  - option "Vendor_58626 - (Electronics)"
+  - option "Vendor_98376 - (Electronics)"
+  - option "Vendor_77854 - (Electronics)"
+  - option "Vendor_10245 - (Electronics)"
+  - option "Vendor_70290 - (Electronics)"
+  - option "Vendor_52720 - (Electronics)"
+  - option "Vendor_63220 - (Electronics)"
+  - option "Vendor_61808 - (Electronics)"
+  - option "Vendor_34973 - (Electronics)"
+  - option "Vendor_56867 - (Electronics)"
+  - option "Vendor_71608 - (Electronics)"
+  - option "Vendor_05844 - (Electronics)"
+  - option "Vendor_00445 - (Electronics)"
+  - option "Vendor_90300 - (Electronics)"
+  - option "Vendor_92735 - (Electronics)"
+  - option "Vendor_83303 - (Electronics)"
+  - option "Vendor_58794 - (Electronics)"
+  - option "Vendor_80995 - (Electronics)"
+  - option "Vendor_42041 - (Electronics)"
+  - option "Vendor_51111 - (Electronics)"
+  - option "Vendor_45269 - (Electronics)"
+- button "Add"
+```

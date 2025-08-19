@@ -1,0 +1,2 @@
+Status: 200
+Body: {"campaignId":"CAM00023","campaignName":"Camp_[object Promise]","campaignStatus":"active","targetSize":200,"expectedCloseDate":"","targetAudience":"","description":"test campaign data"}

@@ -1,0 +1,56 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Create Contact" [level=3]
+- text: "Contact ID:"
+- textbox: Auto Generated
+- text: Organization*
+- textbox: nsts user
+- text: Title*
+- textbox: Lead
+- text: "Department:"
+- textbox: Sales
+- text: "Office Phone:"
+- textbox: "2222222222"
+- text: Contact Name*
+- textbox: ninzauser contact
+- text: Mobile*
+- textbox: "1234567890"
+- text: "Email:"
+- textbox: ninzauser1@tekarch.com
+- text: Campaign*
+- textbox
+- button
+- button "Create Contact"
+```

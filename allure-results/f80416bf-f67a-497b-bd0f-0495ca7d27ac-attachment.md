@@ -1,0 +1,199 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Contacts" [level=2]
+- button " Create Contact"
+- combobox:
+  - option "Search by Contact Id"
+  - option "Search by Contact Name" [selected]
+- textbox "Search by Contact Name": NinjaCRMUser
+- table:
+  - rowgroup:
+    - row "Contact_Id Contact Name Organization Department Title Office Phone Mobile Email Campaign_Id Actions":
+      - cell "Contact_Id"
+      - cell "Contact Name"
+      - cell "Organization"
+      - cell "Department"
+      - cell "Title"
+      - cell "Office Phone"
+      - cell "Mobile"
+      - cell "Email"
+      - cell "Campaign_Id"
+      - cell "Actions"
+  - rowgroup:
+    - row "CON00283 NinjaCRMUser nsts user ninzauser1 7724750886 CAM00001  ":
+      - cell "CON00283"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "7724750886"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00282 NinjaCRMUser nsts user ninzauser1 7137890510 CAM00001  ":
+      - cell "CON00282"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "7137890510"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00281 NinjaCRMUser nsts user ninzauser1 2222222222 2347659012 ninja@crm.com CAM00001  ":
+      - cell "CON00281"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell "2222222222"
+      - cell "2347659012"
+      - cell "ninja@crm.com"
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00280 NinjaCRMUser nsts user ninzauser1 5685693978 CAM00001  ":
+      - cell "CON00280"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "5685693978"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00279 NinjaCRMUser nsts user ninzauser1 2750109489 CAM00001  ":
+      - cell "CON00279"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "2750109489"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00278 NinjaCRMUser nsts user ninzauser1 4016483162 CAM00001  ":
+      - cell "CON00278"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "4016483162"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00225 NinjaCRMUser nsts user ninzauserD ninzauser1 2222222222 2345678901 CAM00001  ":
+      - cell "CON00225"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell "ninzauserD"
+      - cell "ninzauser1"
+      - cell "2222222222"
+      - cell "2345678901"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+- list:
+  - listitem:
+    - link "Go to first page":
+      - /url: "#"
+      - text: «
+  - listitem:
+    - link "Go to previous page":
+      - /url: "#"
+      - text: ⟨
+  - listitem:
+    - link "Go to page number 1":
+      - /url: "#"
+      - text: "1"
+  - listitem:
+    - link "Go to page number 2":
+      - /url: "#"
+      - text: "2"
+  - listitem:
+    - link "Go to page number 3":
+      - /url: "#"
+      - text: "3"
+  - listitem:
+    - link "Go to page number 4":
+      - /url: "#"
+      - text: "4"
+  - listitem:
+    - link "Go to page number 5":
+      - /url: "#"
+      - text: "5"
+  - listitem:
+    - link "Go to next page":
+      - /url: "#"
+      - text: ⟩
+  - listitem:
+    - link "Go to last page":
+      - /url: "#"
+      - text: »
+- alert: Contact NinjaCRMUser Successfully Added
+- button "close": ✖︎
+```

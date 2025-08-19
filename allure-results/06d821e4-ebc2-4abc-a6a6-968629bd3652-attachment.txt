@@ -1,0 +1,2 @@
+Status: 200
+Body: {"campaignId":"CAM00025","campaignName":null,"campaignStatus":null,"targetSize":100,"expectedCloseDate":null,"targetAudience":null,"description":null}

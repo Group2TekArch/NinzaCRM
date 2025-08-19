@@ -1,0 +1,10 @@
+body {
+  campaignId: 'CAM07265',
+  campaignName: 'Camp_[object Promise]',
+  campaignStatus: 'active',
+  targetSize: 0,
+  expectedCloseDate: '',
+  targetAudience: '',
+  description: 'test campaign data'
+}
+campaign ID: CAM07265
