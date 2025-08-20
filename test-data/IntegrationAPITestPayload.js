@@ -32,8 +32,11 @@ async function generateCampaignPayload() {
   }
 }
 
+
+
 module.exports = { 
    generateCreateUserPayload,
-    generateCampaignPayload
+    generateCampaignPayload,
+ 
  };
 

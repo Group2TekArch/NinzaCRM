@@ -70,3 +70,22 @@ test('Create campaign', async() =>{
       expect(campaignID).toBeTruthy();
       expect(campaignID.length).toBeGreaterThan(0);
 })
+
+test('getAllContact', async() =>{
+  const apiContext = await request.newContext({
+    headers: {
+      Authorization: `Bearer ${jwtToken}`
+    }
+  });
+
+  const response = await apiContext.get('http://49.249.28.218:8098/contact/all');
+
+  console.log('Status:', response.status());
+  console.log('Body:', await response.text());
+
+  expect(response.ok).toBeTruthy();
+
+  expect(response.status()).toBe(200);
+  const body = await response.json();
+})
+
