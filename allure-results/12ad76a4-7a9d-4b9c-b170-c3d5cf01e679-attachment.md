@@ -1,0 +1,244 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Contacts" [level=2]
+- button " Create Contact"
+- combobox:
+  - option "Search by Contact Id" [selected]
+  - option "Search by Contact Name"
+- textbox "Search by Contact Id"
+- table:
+  - rowgroup:
+    - row "Contact_Id Contact Name Organization Department Title Office Phone Mobile Email Campaign_Id Actions":
+      - cell "Contact_Id"
+      - cell "Contact Name"
+      - cell "Organization"
+      - cell "Department"
+      - cell "Title"
+      - cell "Office Phone"
+      - cell "Mobile"
+      - cell "Email"
+      - cell "Campaign_Id"
+      - cell "Actions"
+  - rowgroup:
+    - row "CON00285 Name groupninza PO 9967345678 CAM00001  ":
+      - cell "CON00285"
+      - cell "Name"
+      - cell "groupninza"
+      - cell
+      - cell "PO"
+      - cell
+      - cell "9967345678"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00284 NinjaCRMUser nsts user ninzauser1 6002357306 CAM00001  ":
+      - cell "CON00284"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "6002357306"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00283 NinjaCRMUser nsts user ninzauser1 7724750886 CAM00001  ":
+      - cell "CON00283"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "7724750886"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00282 NinjaCRMUser nsts user ninzauser1 7137890510 CAM00001  ":
+      - cell "CON00282"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "7137890510"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00281 NinjaCRMUser nsts user ninzauser1 2222222222 2347659012 ninja@crm.com CAM00001  ":
+      - cell "CON00281"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell "2222222222"
+      - cell "2347659012"
+      - cell "ninja@crm.com"
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00280 NinjaCRMUser nsts user ninzauser1 5685693978 CAM00001  ":
+      - cell "CON00280"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "5685693978"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00279 NinjaCRMUser nsts user ninzauser1 2750109489 CAM00001  ":
+      - cell "CON00279"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "2750109489"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00278 NinjaCRMUser nsts user ninzauser1 4016483162 CAM00001  ":
+      - cell "CON00278"
+      - cell "NinjaCRMUser"
+      - cell "nsts user"
+      - cell
+      - cell "ninzauser1"
+      - cell
+      - cell "4016483162"
+      - cell
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00277 asdfdsf asfd adsfdsf 1234567898 CAM00002  ":
+      - cell "CON00277"
+      - cell "asdfdsf"
+      - cell "asfd"
+      - cell
+      - cell "adsfdsf"
+      - cell
+      - cell "1234567898"
+      - cell
+      - cell "CAM00002"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+    - row "CON00276 QATester Test qa Mr 1212121212 2323232323 test@123gmail.com CAM00001  ":
+      - cell "CON00276"
+      - cell "QATester"
+      - cell "Test"
+      - cell "qa"
+      - cell "Mr"
+      - cell "1212121212"
+      - cell "2323232323"
+      - cell "test@123gmail.com"
+      - cell "CAM00001"
+      - cell " ":
+        - link "":
+          - /url: ""
+        - link "":
+          - /url: /contacts#deleteProductModal
+- list:
+  - listitem:
+    - link "Go to first page":
+      - /url: "#"
+      - text: «
+  - listitem:
+    - link "Go to previous page":
+      - /url: "#"
+      - text: ⟨
+  - listitem:
+    - link "Go to page number 1":
+      - /url: "#"
+      - text: "1"
+  - listitem:
+    - link "Go to page number 2":
+      - /url: "#"
+      - text: "2"
+  - listitem:
+    - link "Go to page number 3":
+      - /url: "#"
+      - text: "3"
+  - listitem:
+    - link "Go to page number 4":
+      - /url: "#"
+      - text: "4"
+  - listitem:
+    - link "Go to page number 5":
+      - /url: "#"
+      - text: "5"
+  - listitem:
+    - link "Go to next page":
+      - /url: "#"
+      - text: ⟩
+  - listitem:
+    - link "Go to last page":
+      - /url: "#"
+      - text: »
+- alert: Contact Name Successfully Added
+- button "close": ✖︎
+```

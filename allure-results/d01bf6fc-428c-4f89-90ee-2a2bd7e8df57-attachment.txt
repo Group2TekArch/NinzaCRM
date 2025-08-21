@@ -1,0 +1,2 @@
+Status: 200
+Body: {"campaignId":"CAM00025","campaignName":"Titan121","campaignStatus":"Done","targetSize":100,"expectedCloseDate":"07-20-2011","targetAudience":"14","description":"adjsdjsasdbwdyjijudksnsn"}

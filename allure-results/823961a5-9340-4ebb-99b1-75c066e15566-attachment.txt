@@ -1,0 +1,14 @@
+payload: {
+  department: 'IT',
+  designation: 'IT Manager',
+  dob: '',
+  email: 'user_6582@example.com',
+  empName: 'aab',
+  experience: 0,
+  mobileNo: '6857799698',
+  role: 'ROLE_EMPLOYEE',
+  username: 'user_3474',
+  password: 'playwright1234'
+}
+Status: 201
+Body: {"empId":"UID_02051","empName":"aab","mobileNo":"6857799698","email":"user_6582@example.com","dob":"","experience":0.0,"username":"user_3474","designation":"IT Manager","password":"$2a$10$x64QwfUNjCiGYEpXdB3ty.cWnCVR64e/fseNBq/S1FCCuhzcZno/m","role":"ROLE_EMPLOYEE","department":"IT"}

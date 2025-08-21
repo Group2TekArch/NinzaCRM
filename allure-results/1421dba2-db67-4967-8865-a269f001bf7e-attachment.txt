@@ -1,0 +1,3 @@
+Status: 202
+Body: {"msg":"Successfully Logged In","username":"user_7357","role":"ROLE_EMPLOYEE","jwtToken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyXzczNTciLCJleHAiOjE3NTU2MTIzMDIsImlhdCI6MTc1NTU3NjMwMn0.Aq1ErdO7oljS_xM3wkuNLMM800RtvQbZG3GSV7L3Dqk"}
+jwtToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyXzczNTciLCJleHAiOjE3NTU2MTIzMDIsImlhdCI6MTc1NTU3NjMwMn0.Aq1ErdO7oljS_xM3wkuNLMM800RtvQbZG3GSV7L3Dqk

@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "05625f52-e259-4347-bb61-6723f1aa43c0",
+		"name": "CRMProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19620435"
+	},
+	"item": [
+		{
+			"name": "Integration tests",
+			"item": [
+				{
+					"name": "Createuser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"department\": \"Admin\",\n    \"designation\": \"manager\",\n    \"dob\": \"1/2/1990\",\n    \"email\": \"pri@gmail.com\",\n    \"empName\": \"Pri\",\n    \"experience\": 11,\n    \"mobileNo\": \"1234566754\",\n    \"role\": \"Admin\",\n    \"username\": \"pri1234\",\n    \"password\": \"pri@1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/create-user",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pri@123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "pri123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}login",
+							"host": [
+								"{{baseUrl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCampaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "rmgy@9999",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "rmgyantra",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"campaignId\": \"string\",\n  \"campaignName\": \"Titan\",\n  \"campaignStatus\": \"Pending\",\n  \"description\": \"adjsdjsasdbwehdowijdksnsn\",\n  \"expectedCloseDate\": \"8-12-2025\",\n  \"targetAudience\": \"12\",\n  \"targetSize\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}campaign",
+							"host": [
+								"{{baseUrl}}campaign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallcampaign",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}campaign/all",
+							"host": [
+								"{{baseUrl}}campaign"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCampaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campaignId\": \"CAM05180\",\n    \"campaignName\": \"Titan123\",\n    \"campaignStatus\": \"Done\",\n    \"targetSize\": 12,\n    \"expectedCloseDate\": \"8-13-2022\",\n    \"targetAudience\": \"17\",\n    \"description\": \"adjsdjsasdbwdyjijdksnsn\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}campaign?campaignId=CAM05323",
+							"host": [
+								"{{baseUrl}}campaign"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "CAM05323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallcampaign",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}campaign/all",
+							"host": [
+								"{{baseUrl}}campaign"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createcontactUcampaign",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campaignId\": \"CAM05322\",\n    \"campaignName\": \"Titan123\",\n    \"campaignStatus\": \"Done\",\n    \"targetSize\": 0,\n    \"expectedCloseDate\": \"8-13-2022\",\n    \"targetAudience\": \"17\",\n    \"description\": \"adjsdjsasdbwdyjijdksnsn\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}campaign?campaignId=CAM05323",
+							"host": [
+								"{{baseUrl}}campaign"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "CAM05323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallcontacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}contact/all",
+							"host": [
+								"{{baseUrl}}contact"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatecontact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"content\": [\n        {\n            \"contactId\": \"CON00726\",\n            \"contactName\": \"Contact1\",\n            \"organizationName\": \"\",\n            \"title\": \"IT Manager\",\n            \"department\": \"IT\",\n            \"officePhone\": \"strig\",\n            \"mobile\": \"9738632757\",\n            \"email\": \"suser_4392_test@example.com\",\n            \"campaign\": {\n                \"campaignId\": \"CAM0522\",\n                \"campaignName\": \"string\",\n                \"campaignStatus\": \"string\",\n                \"targetSize\": 0,\n                \"expectedCloseDate\": \"string\",\n                \"targetAudience\": \"string\",\n                \"description\": \"string\"\n            }\n        },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}contact?contactId=CON00720&campaignId=CAM05323",
+							"host": [
+								"{{baseUrl}}contact"
+							],
+							"query": [
+								{
+									"key": "contactId",
+									"value": "CON00720"
+								},
+								{
+									"key": "campaignId",
+									"value": "CAM05323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallcontacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}contact/all",
+							"host": [
+								"{{baseUrl}}contact"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletecontact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}contact?contactId=CON00719",
+							"host": [
+								"{{baseUrl}}contact"
+							],
+							"query": [
+								{
+									"key": "contactId",
+									"value": "CON00719"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallcontacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}contact/all",
+							"host": [
+								"{{baseUrl}}contact"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletecampaign",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}campaign?campaignId=CAM05321",
+							"host": [
+								"{{baseUrl}}campaign"
+							],
+							"query": [
+								{
+									"key": "campaignId",
+									"value": "CAM05321"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCampaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}campaign/all",
+							"host": [
+								"{{baseUrl}}campaign"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteuser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "rmgyantra",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "rmgy@9999",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}admin/user?userId=UID_00217",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "UID_00217"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallusers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "rmgyantra",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "rmgy@9999",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}admin/users",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invalid",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.collectionVariables.set(\"variable_key\", \"username\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://49.249.28.218:8098/"
+		},
+		{
+			"key": "variable_key",
+			"value": ""
+		}
+	]
+}

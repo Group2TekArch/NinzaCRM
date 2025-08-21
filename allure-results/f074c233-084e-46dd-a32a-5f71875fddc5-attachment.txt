@@ -1,0 +1,2 @@
+Status: 405
+Body: {"timestamp":"2025-08-17T22:41:08.052+0000","status":405,"error":"Method Not Allowed","message":"Request method 'PUT' not supported","path":"/campaign/campaign"}

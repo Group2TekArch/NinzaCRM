@@ -1,0 +1,2 @@
+Status: 200
+Body: {"campaignId":"CAM00025","campaignName":"Ninja111","campaignStatus":"Done","targetSize":100,"expectedCloseDate":"01-01-2012","targetAudience":"22","description":"qwertyuiopkjldgqasdvcbnxzmn"}
