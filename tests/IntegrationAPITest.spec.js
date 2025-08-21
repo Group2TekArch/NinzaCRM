@@ -2,7 +2,7 @@ const { test, expect,request } = require('@playwright/test');
 const {generateCreateUserPayload,generateCampaignPayload,UpdateCampaignPayload} = require('../test-data/IntegrationAPITestPayload');
 let nonadminusername, nonadminpassword,jwtToken,campaignID, empID; 
 
-test.only('Create non Admin user', async() =>{
+test('Create non Admin user', async() =>{
     const apiContext = await request.newContext({
         httpCredentials: {
           username: 'rmgyantra',
