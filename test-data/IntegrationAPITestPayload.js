@@ -47,8 +47,8 @@ async function UpdateCampaignPayload() {
   "contactId": "",
   "contactName": "pqrst",
   "department": "Finance",
-  "email": "pqrttwt@gmail.com",
-  "mobile": "1383567890",
+  "email": await generateRandomEmail(),
+  "mobile": await generateRandomMobileNo(),
   "officePhone": "765632189",
   "organizationName": "Apple",
   "title": "Uvwxyz"
@@ -56,9 +56,32 @@ async function UpdateCampaignPayload() {
 };
 }
 
-module.exports = { 
-   generateCreateUserPayload,
-    generateCampaignPayload
-    ,UpdateCampaignPayload
+async function UpdateContactPayload() {
+    return {
+      "contactId": "CON01530",
+      "contactName": "Contact_78064",
+      "organizationName": "Organization_78064",
+      "title": "string",
+      "department": "string",
+      "officePhone": "string",
+      "mobile": "8546278064",
+      "email": null,
+      "campaign": {
+        "campaignId": "CAM07816",
+        "campaignName": "Campaigny",
+        "campaignStatus": "string",
+        "targetSize": 100,
+        "expectedCloseDate": "string",
+        "targetAudience": "string",
+        "description": "string"
+      }
+    }
+};
+
+module.exports = {
+  generateCreateUserPayload,
+  generateCampaignPayload,
+  UpdateCampaignPayload,
+  UpdateContactPayload
  };
 
