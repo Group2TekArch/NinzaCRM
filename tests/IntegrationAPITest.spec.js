@@ -1,6 +1,6 @@
 const { test, expect,request } = require('@playwright/test');
-const {generateCreateUserPayload,generateCampaignPayload,UpdateCampaignPayload} = require('../test-data/IntegrationAPITestPayload');
-let nonadminusername, nonadminpassword,jwtToken,campaignID, empID; 
+const {generateCreateUserPayload,generateCampaignPayload,UpdateCampaignPayload, UpdateContactPayload} = require('../test-data/IntegrationAPITestPayload');
+let nonadminusername, nonadminpassword,jwtToken,campaignID, contactId, empID;
 
 test('Create non Admin user', async() =>{
     const apiContext = await request.newContext({
@@ -124,4 +124,114 @@ test('Create Contact with Updated Campaign', async() => {
     contactId = body.contactId;
     expect(body.contactId).toBeTruthy();
     expect(body.contactId.length).toBeGreaterThan(0);
+})
+
+test('getAllContact', async() =>{
+  const apiContext = await request.newContext({
+    headers: {
+      Authorization: `Bearer ${jwtToken}`
+    }
+  });
+  const response = await apiContext.get('http://49.249.28.218:8098/contact/all');
+
+  console.log('Status:', response.status());
+  console.log('Body:', await response.text());
+
+  expect(response.ok).toBeTruthy();
+  expect(response.status()).toBe(200);
+})
+
+test('update contact', async() =>{
+  const apiContext = await request.newContext();
+   const contactdata = await UpdateContactPayload();
+   const response = await apiContext.put('http://49.249.28.218:8098/contact?contactId=CON01530&campaignId=CAM07816',{
+    headers: {
+      Authorization: `Bearer ${jwtToken}`
+    },
+     data: contactdata
+  });
+ 
+  console.log('Status:', response.status());
+  console.log('Body:', await response.text());
+
+  expect(response.ok).toBeTruthy();
+  expect(response.status()).toBe(200);
+  const body = await response.json();
+  expect(body.contactId).toEqual("CON01530");
+})
+
+test('delete contact', async() =>{
+  const apiContext = await request.newContext();
+  const response = await apiContext.delete(`http://49.249.28.218:8098/contact?contactId=${contactId}`, {
+    headers: {
+      Authorization: `Bearer ${jwtToken}`
+    }
+  });
+
+  console.log('Delete Status:', response.status());
+  expect(response.status()).toBe(204);
+  
+  const body = await response.text();
+  console.log("Delete Response:", body);
+  
+})
+test('Get all contact', async() =>{
+    const apiContext = await request.newContext();
+    const response = await apiContext.get(`http://49.249.28.218:8098/contact/all`);
+
+    console.log('Status:', response.status());
+    console.log('Body:', await response.text());
+
+    expect(response.ok).toBeTruthy();
+    expect(response.status()).toBe(200);
+    
+})
+
+test('Get all user', async() =>{
+    const apiContext = await request.newContext();
+    const response = await apiContext.get(`http://49.249.28.218:8098/user/all`);
+
+    console.log('Status:', response.status());
+    console.log('Body:', await response.text());
+
+    expect(response.ok).toBeTruthy();
+    expect(response.status()).toBe(200);
+    
+})
+
+test('Delete campaign', async() =>{
+    const apiContext = await request.newContext();
+    const campaigndata = await generateCampaignPayload();
+    const response = await apiContext.post('http://49.249.28.218:8098/campaign', {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`
+        },
+        data:campaigndata
+      });
+
+      expect(response.ok).toBeTruthy();
+      expect(response.status()).toBe(201);
+      const body = await response.json();
+      console.log('body',body);
+      campaignID = body.campaignId;
+      console.log('campaign ID:',campaignID)
+      expect(campaignID).toBeTruthy();
+      expect(campaignID.length).toBeGreaterThan(0);
+})
+
+
+test('Delete User', async() =>{
+const apiContext = await request.newContext({
+httpCredentials: {
+username: 'rmgyantra',
+password: 'rmgy@9999'
+}
+});
+
+const response = await apiContext.delete(`http://49.249.28.218:8098/admin/user?userId=${empID}`);
+
+expect(response.ok).toBeTruthy();
+expect(response.status()).toBe(204);
+//const body = await response.json();
+//console.log('body',body);
 })
