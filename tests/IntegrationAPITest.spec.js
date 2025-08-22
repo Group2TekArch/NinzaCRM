@@ -1,6 +1,6 @@
 const { test, expect,request } = require('@playwright/test');
 const {generateCreateUserPayload,generateCampaignPayload,UpdateCampaignPayload, UpdateContactPayload} = require('../test-data/IntegrationAPITestPayload');
-let nonadminusername, nonadminpassword,jwtToken,campaignID, contactId;
+let nonadminusername, nonadminpassword,jwtToken,campaignID, contactId, empID;
 
 test('Create non Admin user', async() =>{
     const apiContext = await request.newContext({
@@ -26,6 +26,7 @@ test('Create non Admin user', async() =>{
       //expect(body.username).toEqual(userdata.username);
       //expect(body).toContain(body.password);
       //expect(body.password).toEqual(userdata.password);
+      empID = body.empId
 
       nonadminusername = userdata.username;
   nonadminpassword = userdata.password;
@@ -173,4 +174,64 @@ test('delete contact', async() =>{
   const body = await response.text();
   console.log("Delete Response:", body);
   
+})
+test('Get all contact', async() =>{
+    const apiContext = await request.newContext();
+    const response = await apiContext.get(`http://49.249.28.218:8098/contact/all`);
+
+    console.log('Status:', response.status());
+    console.log('Body:', await response.text());
+
+    expect(response.ok).toBeTruthy();
+    expect(response.status()).toBe(200);
+    
+})
+
+test('Get all user', async() =>{
+    const apiContext = await request.newContext();
+    const response = await apiContext.get(`http://49.249.28.218:8098/user/all`);
+
+    console.log('Status:', response.status());
+    console.log('Body:', await response.text());
+
+    expect(response.ok).toBeTruthy();
+    expect(response.status()).toBe(200);
+    
+})
+
+test('Delete campaign', async() =>{
+    const apiContext = await request.newContext();
+    const campaigndata = await generateCampaignPayload();
+    const response = await apiContext.post('http://49.249.28.218:8098/campaign', {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`
+        },
+        data:campaigndata
+      });
+
+      expect(response.ok).toBeTruthy();
+      expect(response.status()).toBe(201);
+      const body = await response.json();
+      console.log('body',body);
+      campaignID = body.campaignId;
+      console.log('campaign ID:',campaignID)
+      expect(campaignID).toBeTruthy();
+      expect(campaignID.length).toBeGreaterThan(0);
+})
+
+
+test('Delete User', async() =>{
+const apiContext = await request.newContext({
+httpCredentials: {
+username: 'rmgyantra',
+password: 'rmgy@9999'
+}
+});
+
+const response = await apiContext.delete(`http://49.249.28.218:8098/admin/user?userId=${empID}`);
+
+expect(response.ok).toBeTruthy();
+expect(response.status()).toBe(204);
+//const body = await response.json();
+//console.log('body',body);
 })
